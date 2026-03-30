@@ -1,0 +1,3328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Venture+ | UAE & Qatar Business Consultancy</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&family=Cormorant+Garamond:wght@300;400;600;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<style>
+/* ══════════════════════════════════════════
+   RESET & BASE (unchanged)
+══════════════════════════════════════════ */
+*{margin:0;padding:0;box-sizing:border-box;}
+body{overflow-x:hidden;background:#0a0005;}
+
+/* ══════════════════════════════════════════
+   NAVBAR — UNTOUCHED
+══════════════════════════════════════════ */
+.navbar{
+  position:fixed;top:20px;left:50%;transform:translateX(-50%);
+  width:90%;z-index:999;
+  background:rgba(255,255,255,0.05);backdrop-filter:blur(15px);
+  border:1px solid rgba(255,255,255,0.1);border-radius:50px;
+  padding:10px 30px;transition:0.3s;
+}
+.nav-container{display:flex;justify-content:space-between;align-items:center;}
+.logo{display:flex;align-items:center;gap:12px;}
+.logo img{
+  width:48px;height:48px;object-fit:cover;display:block;
+  background:#ffffff;border-radius:10px;
+  filter:brightness(1.05) contrast(1.05);
+}
+.logo-text{display:flex;flex-direction:column;line-height:1;}
+.brand{font-size:22px;font-weight:700;color:#ffffff;font-family:'Poppins',sans-serif;}
+.tagline{font-size:12px;font-weight:500;color:#ff2e63;letter-spacing:2.5px;text-transform:uppercase;margin-top:3px;font-family:'Poppins',sans-serif;}
+.nav-links{list-style:none;display:flex;gap:35px;}
+.nav-links a{
+  text-decoration:none;color:#ddd;font-size:15px;transition:0.3s;
+  position:relative;font-family:'Poppins',sans-serif;
+}
+.nav-links a:hover{color:white;}
+.nav-links a::after{
+  content:'';position:absolute;width:0%;height:2px;left:0;bottom:-6px;
+  background:linear-gradient(45deg,#ff2e63,#ff6a88);transition:0.3s;
+}
+.nav-links a:hover::after{width:100%;}
+.navbar.scrolled{background:rgba(0,0,0,0.7);box-shadow:0 0 20px rgba(255,46,99,0.2);}
+
+/* ══════════════════════════════════════════
+   HERO — UNTOUCHED
+══════════════════════════════════════════ */
+.hero{
+  height:100vh;position:relative;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 80px;color:white;font-family:'Poppins',sans-serif;
+}
+.hero-content{z-index:2;max-width:560px;padding-top:100px;}
+.hero-label{
+  font-size:11px;font-weight:600;letter-spacing:3px;text-transform:uppercase;
+  color:rgba(255,255,255,0.45);margin-bottom:14px;
+}
+.hero-content h1{font-size:52px;font-weight:800;line-height:1.15;color:#ffffff;}
+.hero-content h1 .highlight{
+  color:#ff2e63;position:relative;display:inline-block;
+}
+.hero-content h1 .highlight::after{
+  content:'';position:absolute;left:0;bottom:-4px;width:100%;height:3px;
+  background:linear-gradient(90deg,#ff2e63,#ff6a88);border-radius:2px;
+}
+.hero-content p{
+  margin:24px 0 32px;color:rgba(255,255,255,0.6);font-size:15px;
+  font-weight:300;line-height:1.7;max-width:480px;
+}
+.hero-btns{display:flex;gap:14px;align-items:center;flex-wrap:wrap;}
+.btn{
+  padding:13px 32px;border:none;
+  background:linear-gradient(45deg,#ff2e63,#ff6a88);
+  color:white;border-radius:30px;cursor:pointer;font-size:14px;
+  font-weight:600;transition:.3s;font-family:'Poppins',sans-serif;
+}
+.btn:hover{transform:scale(1.05);box-shadow:0 0 22px rgba(255,46,99,0.6);}
+.btn-outline{
+  padding:13px 32px;border:1.5px solid rgba(255,255,255,0.25);
+  background:transparent;color:white;border-radius:30px;cursor:pointer;
+  font-size:14px;font-weight:400;transition:.3s;font-family:'Poppins',sans-serif;
+}
+.btn-outline:hover{border-color:#ff2e63;color:#ff6a88;background:rgba(255,46,99,0.08);}
+.hero-right{
+  z-index:2;padding-top:100px;display:flex;flex-direction:column;
+  align-items:flex-end;gap:18px;min-width:320px;
+}
+.right-big-word{
+  font-size:72px;font-weight:800;line-height:1;text-align:right;letter-spacing:-2px;
+  background:linear-gradient(135deg,#ff2e63,#ff6a88,#ffffff);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  opacity:1;transform:translateY(0);transition:opacity 0.4s ease,transform 0.4s ease;
+}
+.right-big-word.fade-out{opacity:0;transform:translateY(20px);}
+.right-divider{width:100%;height:1px;background:linear-gradient(90deg,transparent,rgba(255,46,99,0.5));}
+.right-service-list{display:flex;flex-direction:column;align-items:flex-end;gap:10px;}
+.right-service-list .service-item{
+  font-size:13px;font-weight:400;letter-spacing:1.5px;text-transform:uppercase;
+  color:rgba(255,255,255,0.25);transition:color 0.4s,letter-spacing 0.4s;
+  cursor:default;display:flex;align-items:center;gap:8px;
+}
+.right-service-list .service-item.active{color:#ffffff;letter-spacing:2.5px;}
+.right-service-list .service-item .s-dot{
+  width:5px;height:5px;border-radius:50%;background:#ff2e63;opacity:0;transition:opacity 0.4s;
+}
+.right-service-list .service-item.active .s-dot{opacity:1;}
+.right-counter{font-size:11px;font-weight:300;color:rgba(255,255,255,0.25);letter-spacing:2px;}
+.right-counter span{color:#ff2e63;font-weight:600;}
+#bg{position:absolute;top:0;left:0;width:100%;height:100%;z-index:1;}
+
+/* ══════════════════════════════════════════
+   WAVE DIVIDER  (hero → cream)
+══════════════════════════════════════════ */
+.wave-divider{
+  display:block;width:100%;height:100px;
+
+  position:relative;z-index:5;
+  margin-bottom:-2px;
+}
+.wave-divider svg{display:block;width:100%;height:100%;}
+
+/* ══════════════════════════════════════════
+   OFFERING SECTION  — WARM CREAM (untouched)
+══════════════════════════════════════════ */
+:root{
+  --cream:#faf6f0;
+  --cream2:#f3ede3;
+  --ink:#1a1008;
+  --ink2:#5a4a38;
+  --gold:#c8942a;
+  --gold2:#e8b84b;
+  --accent:#ff2e63;
+  --pink:#d4006e;
+  --pink2:#f0339a;
+  --shadow:rgba(90,60,20,0.12);
+}
+
+.offering{
+  background:var(--cream);
+  padding:100px 80px 120px;
+  position:relative;
+  overflow:hidden;
+  font-family:'DM Sans',sans-serif;
+}
+.offering::before{
+  content:'';position:absolute;inset:0;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  opacity:0.5;pointer-events:none;
+}
+.offering::after{
+  content:'';position:absolute;
+  width:700px;height:700px;border-radius:50%;
+  border:1px solid rgba(200,148,42,0.1);
+  top:-200px;right:-200px;
+  pointer-events:none;
+}
+.of-label-row{
+  display:flex;align-items:center;gap:14px;
+  margin-bottom:18px;
+  opacity:0;transform:translateX(-30px);
+  transition:opacity .8s ease, transform .8s ease;
+}
+.of-label-row.in{opacity:1;transform:translateX(0);}
+.of-pill{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(212,0,110,0.07);
+  border:1px solid rgba(212,0,110,0.25);
+  border-radius:50px;padding:6px 16px;
+}
+.of-pill-dot{
+  width:7px;height:7px;border-radius:50%;
+  background:var(--pink);
+  box-shadow:0 0 8px var(--pink2);
+  animation:blink 2s ease-in-out infinite;
+}
+@keyframes blink{0%,100%{opacity:1;}50%{opacity:.3;}}
+.of-pill span{
+  font-size:10px;font-weight:500;letter-spacing:3px;
+  text-transform:uppercase;color:var(--pink);
+}
+.of-heading-wrap{
+  display:flex;align-items:flex-end;justify-content:space-between;
+  margin-bottom:80px;gap:40px;
+  opacity:0;transform:translateY(30px);
+  transition:opacity .9s ease .15s, transform .9s ease .15s;
+}
+.of-heading-wrap.in{opacity:1;transform:translateY(0);}
+.of-heading{
+  font-family:'Cormorant Garamond',serif;
+  font-size:48px;font-weight:600;line-height:1.2;
+  color:var(--ink);max-width:640px;
+}
+.of-heading em{
+  font-style:italic;color:var(--pink);
+}
+.of-subtext{
+  font-size:13px;font-weight:300;line-height:1.8;
+  color:var(--ink2);max-width:220px;text-align:right;
+  border-left:2px solid var(--pink);
+  padding-left:16px;
+}
+.bento{
+  display:grid;
+  grid-template-columns:1.15fr 1fr 1fr;
+  grid-template-rows:auto auto;
+  gap:18px;
+}
+.b-hero{ grid-column:1; grid-row:1/3; }
+.b-sm-1{ grid-column:2; grid-row:1; }
+.b-sm-2{ grid-column:3; grid-row:1; }
+.b-sm-3{ grid-column:2; grid-row:2; }
+.b-sm-4{ grid-column:3; grid-row:2; }
+.of-card{
+  background:#ffffff;
+  border-radius:20px;
+  position:relative;
+  overflow:hidden;
+  cursor:pointer;
+  display:flex;
+  flex-direction:column;
+  box-shadow:0 1px 0 rgba(200,148,42,0.12), 0 6px 24px var(--shadow);
+  opacity:0;
+  transform:translateY(36px) scale(0.97);
+  transition:opacity .65s ease, transform .65s ease, box-shadow .35s ease;
+}
+.of-card.in{ opacity:1; transform:translateY(0) scale(1); }
+.b-hero{    transition-delay:.08s; }
+.b-sm-1{   transition-delay:.2s;  }
+.b-sm-2{   transition-delay:.3s;  }
+.b-sm-3{   transition-delay:.4s;  }
+.b-sm-4{   transition-delay:.5s;  }
+.of-card:hover{
+  box-shadow:0 0 0 1.5px rgba(212,0,110,0.18), 0 16px 48px rgba(90,60,20,0.16);
+  transform:translateY(-5px) scale(1.01) !important;
+}
+.b-hero-inner{
+  padding:38px 36px 36px;
+  display:flex;
+  flex-direction:column;
+  height:100%;
+}
+.b-bg-num{
+  position:absolute;
+  bottom:-18px; right:10px;
+  font-family:'Cormorant Garamond',serif;
+  font-size:140px; font-weight:700; line-height:1;
+  color:transparent;
+  -webkit-text-stroke:1.5px rgba(200,148,42,0.1);
+  user-select:none;
+  transition:-webkit-text-stroke .4s;
+  pointer-events:none;
+}
+.of-card:hover .b-bg-num{
+  -webkit-text-stroke:1.5px rgba(212,0,110,0.22);
+}
+.b-hero::before{
+  content:'';
+  position:absolute; left:0; top:0; bottom:0;
+  width:3px;
+  background:linear-gradient(180deg, var(--pink), var(--gold), var(--gold2));
+  border-radius:3px 0 0 3px;
+  transform:scaleY(0);
+  transform-origin:top;
+  transition:transform .6s cubic-bezier(.22,1,.36,1);
+}
+.b-hero:hover::before{ transform:scaleY(1); }
+.b-icon{
+  width:56px; height:56px;
+  border-radius:16px;
+  background:linear-gradient(135deg, rgba(200,148,42,0.1), rgba(212,0,110,0.06));
+  border:1px solid rgba(200,148,42,0.18);
+  display:flex; align-items:center; justify-content:center;
+  margin-bottom:24px;
+  transition:transform .4s cubic-bezier(.22,1,.36,1), box-shadow .4s, background .4s;
+  flex-shrink:0;
+}
+.of-card:hover .b-icon{
+  transform:rotate(-6deg) scale(1.1);
+  background:linear-gradient(135deg, rgba(212,0,110,0.14), rgba(200,148,42,0.08));
+  box-shadow:0 6px 20px rgba(212,0,110,0.18);
+}
+.b-icon svg{
+  width:26px; height:26px;
+  stroke:var(--gold); stroke-width:1.8;
+  fill:none; stroke-linecap:round; stroke-linejoin:round;
+  transition:stroke .3s;
+}
+.of-card:hover .b-icon svg{ stroke:var(--pink); }
+.b-icon svg path,
+.b-icon svg circle,
+.b-icon svg polyline,
+.b-icon svg line,
+.b-icon svg rect{
+  stroke-dasharray:200;
+  stroke-dashoffset:200;
+  transition:stroke-dashoffset 1.1s cubic-bezier(.22,1,.36,1);
+}
+.of-card.in .b-icon svg path,
+.of-card.in .b-icon svg circle,
+.of-card.in .b-icon svg polyline,
+.of-card.in .b-icon svg line,
+.of-card.in .b-icon svg rect{
+  stroke-dashoffset:0;
+}
+.b-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:26px; font-weight:600; line-height:1.25;
+  color:var(--ink); margin-bottom:12px;
+  transition:color .3s;
+}
+.of-card:hover .b-title{ color:var(--pink); }
+.b-desc{
+  font-size:13px; font-weight:300;
+  color:var(--ink2); line-height:1.75;
+  flex:1;
+}
+.b-stat-row{
+  display:flex; align-items:baseline; gap:5px;
+  margin-top:28px; padding-top:20px;
+  border-top:1px solid rgba(200,148,42,0.12);
+}
+.b-count{
+  font-family:'Cormorant Garamond',serif;
+  font-size:44px; font-weight:700;
+  color:var(--ink);
+  line-height:1;
+  transition:color .3s;
+}
+.of-card:hover .b-count{ color:var(--pink); }
+.b-count-sfx{
+  font-size:12px; color:var(--ink2);
+  letter-spacing:1px; font-weight:400;
+}
+.b-bar{
+  height:2px; background:var(--cream2);
+  border-radius:2px; margin-top:14px; overflow:hidden;
+}
+.b-bar-fill{
+  height:100%; width:0%;
+  background:linear-gradient(90deg, var(--gold), var(--gold2), var(--pink));
+  border-radius:2px;
+  transition:width 1.4s cubic-bezier(.22,1,.36,1) .55s;
+}
+.of-card.in .b-bar-fill{ width:var(--fill,70%); }
+.b-sm-inner{
+  padding:26px 26px 24px;
+  display:flex;
+  flex-direction:column;
+  height:100%;
+}
+.b-sm-1::before,.b-sm-2::before,.b-sm-3::before,.b-sm-4::before{
+  content:'';
+  position:absolute; top:0; left:0; right:0;
+  height:2px;
+  background:linear-gradient(90deg, var(--gold), var(--pink));
+  transform:scaleX(0);
+  transform-origin:left;
+  transition:transform .5s cubic-bezier(.22,1,.36,1);
+}
+.b-sm-1:hover::before,.b-sm-2:hover::before,
+.b-sm-3:hover::before,.b-sm-4:hover::before{ transform:scaleX(1); }
+.b-sm-icon{
+  width:44px; height:44px;
+  border-radius:12px;
+  background:linear-gradient(135deg, rgba(200,148,42,0.08), rgba(212,0,110,0.04));
+  border:1px solid rgba(200,148,42,0.15);
+  display:flex; align-items:center; justify-content:center;
+  margin-bottom:16px;
+  transition:transform .4s cubic-bezier(.22,1,.36,1), box-shadow .4s, background .4s;
+  flex-shrink:0;
+}
+.of-card:hover .b-sm-icon{
+  transform:rotate(-5deg) scale(1.1);
+  background:linear-gradient(135deg, rgba(212,0,110,0.12), rgba(200,148,42,0.06));
+  box-shadow:0 5px 16px rgba(212,0,110,0.15);
+}
+.b-sm-icon svg{
+  width:20px; height:20px;
+  stroke:var(--gold); stroke-width:1.8;
+  fill:none; stroke-linecap:round; stroke-linejoin:round;
+  transition:stroke .3s;
+}
+.of-card:hover .b-sm-icon svg{ stroke:var(--pink); }
+.b-sm-icon svg path,
+.b-sm-icon svg circle,
+.b-sm-icon svg polyline,
+.b-sm-icon svg line{
+  stroke-dasharray:200;
+  stroke-dashoffset:200;
+  transition:stroke-dashoffset 1.1s cubic-bezier(.22,1,.36,1) .1s;
+}
+.of-card.in .b-sm-icon svg path,
+.of-card.in .b-sm-icon svg circle,
+.of-card.in .b-sm-icon svg polyline,
+.of-card.in .b-sm-icon svg line{
+  stroke-dashoffset:0;
+}
+.b-sm-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:18px; font-weight:600; line-height:1.3;
+  color:var(--ink); margin-bottom:8px;
+  transition:color .3s;
+}
+.of-card:hover .b-sm-title{ color:var(--pink); }
+.b-sm-desc{
+  font-size:12px; font-weight:300;
+  color:var(--ink2); line-height:1.7;
+  flex:1;
+}
+.b-sm-stat{
+  display:flex; align-items:baseline; gap:3px;
+  margin-top:16px; padding-top:14px;
+  border-top:1px solid rgba(200,148,42,0.1);
+}
+.b-sm-count{
+  font-family:'Cormorant Garamond',serif;
+  font-size:28px; font-weight:700; line-height:1;
+  color:var(--ink);
+  transition:color .3s;
+}
+.of-card:hover .b-sm-count{ color:var(--pink); }
+.b-sm-sfx{
+  font-size:11px; color:var(--ink2); letter-spacing:.8px;
+}
+
+/* ══════════════════════════════════════════
+   WAVE DIVIDER 2 (cream → navy)
+══════════════════════════════════════════ */
+.wave-divider-muted{
+  display:block;
+  width:100%;
+  height:100px;
+
+  position:relative;
+  z-index:5;
+  margin-bottom:-2px;
+}
+.wave-divider-muted svg{
+  display:block;
+  width:100%;
+  height:100%;
+}
+
+/* ========== NEW SECTION 3: MODERN SERVICES (refined, slightly deeper rose) ========== */
+/* ========== SECTION 3: MODERN SERVICES ========== */
+.services-showcase {
+  background: linear-gradient(135deg, #3a0a18 0%, #5c1028 55%, #4a0c20 100%);
+  position: relative;
+  padding: 100px 80px 120px;
+  font-family: 'DM Sans', sans-serif;
+  overflow: hidden;
+}
+.services-showcase::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background-image: radial-gradient(circle at 10% 20%, rgba(255,46,99,0.04) 2%, transparent 2.5%);
+  background-size: 48px 48px;
+  pointer-events: none;
+}
+.services-showcase::after {
+  content: '';
+  position: absolute;
+  bottom: -50px; right: -50px;
+  width: 400px; height: 400px;
+  background: radial-gradient(circle, rgba(200,148,42,0.08) 0%, rgba(180,30,60,0.04) 100%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+.showcase-container { max-width: 1400px; margin: 0 auto; position: relative; z-index: 2; }
+.showcase-header {
+  text-align: center; margin-bottom: 60px;
+  opacity: 0; transform: translateY(30px);
+  transition: opacity 0.8s cubic-bezier(0.2,0.9,0.4,1.1), transform 0.8s ease;
+}
+.showcase-header.in { opacity: 1; transform: translateY(0); }
+.what-pill {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(180,140,60,0.15); border: 1px solid rgba(180,140,60,0.4);
+  border-radius: 60px; padding: 6px 22px; margin-bottom: 20px;
+  backdrop-filter: blur(2px);
+}
+.what-pill span { font-size: 11px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; color: #d4aa50; }
+.pill-glow {
+  width: 8px; height: 8px; background: #c8942a;
+  border-radius: 50%; box-shadow: 0 0 8px #c8942a;
+  animation: pulseGlow 1.8s infinite;
+}
+@keyframes pulseGlow {
+  0%, 100% { opacity: 0.5; transform: scale(0.8); }
+  50% { opacity: 1; transform: scale(1.2); }
+}
+.showcase-header h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 52px; font-weight: 600; line-height: 1.2;
+  color: #ffffff; letter-spacing: -0.02em;
+  max-width: 850px; margin: 0 auto 18px;
+}
+.showcase-header h2 span {
+  background: linear-gradient(120deg, #c8942a, #e8b84b);
+  background-clip: text; -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; font-style: italic;
+}
+.showcase-sub {
+  font-size: 16px; color: rgba(255,255,255,0.6); font-weight: 400;
+  max-width: 680px; margin: 0 auto; line-height: 1.6;
+  border-top: 1px solid rgba(200,148,42,0.3);
+  display: inline-block; padding-top: 12px;
+}
+
+/* floating glow */
+.floating-glow {
+  position: absolute; top: 20%; left: -80px;
+  width: 300px; height: 300px;
+  background: radial-gradient(circle, rgba(150,70,100,0.12) 0%, rgba(100,50,70,0.06) 80%);
+  border-radius: 50%; filter: blur(70px); pointer-events: none;
+  animation: floatShift 14s infinite alternate;
+}
+@keyframes floatShift {
+  0%   { transform: translate(0,0) scale(1); opacity: .4; }
+  100% { transform: translate(60px,40px) scale(1.2); opacity: .7; }
+}
+
+/* carousel wrapper */
+.carousel-outer { position: relative; margin: 60px 0 20px; padding: 0 70px; }
+.service-flow { overflow: hidden; width: 100%; padding: 44px 0 52px; }
+.carousel-track {
+  display: flex; align-items: center; gap: 24px;
+  transition: transform 0.6s cubic-bezier(0.35,0.85,0.4,1);
+  will-change: transform;
+}
+
+/* individual card */
+.service-unit {
+  flex: 0 0 360px;
+  background: rgba(255,255,255,0.07);
+  backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 28px;
+  padding: 36px 32px 32px;
+  display: flex; flex-direction: column;
+  min-height: 500px;
+  position: relative; overflow: hidden;
+  box-shadow: 0 6px 24px rgba(120,40,60,0.08);
+  cursor: pointer;
+  transition: transform 0.6s cubic-bezier(0.35,0.85,0.4,1), box-shadow 0.5s ease,
+              opacity 0.5s ease, filter 0.5s ease, border-color 0.4s ease;
+  opacity: 0.55; filter: blur(1px); transform: scale(0.88);
+  pointer-events: none;
+}
+.service-unit.active-card {
+  opacity: 1; filter: blur(0); transform: scale(1);
+  background: rgba(255,255,255,0.95);
+  box-shadow: 0 24px 60px rgba(0,0,0,0.4);
+  border-color: rgba(200,148,42,0.3);
+  pointer-events: auto; z-index: 2;
+}
+.service-unit.side-card {
+  opacity: 0.6; filter: blur(0.5px); transform: scale(0.9);
+  pointer-events: auto; cursor: pointer;
+}
+
+/* accent top bar */
+.service-unit::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  background: linear-gradient(90deg, #c8942a, #e8b84b);
+  border-radius: 28px 28px 0 0;
+  transform: scaleX(0); transform-origin: left;
+  transition: transform 0.55s cubic-bezier(0.22,1,0.36,1);
+}
+.service-unit.active-card::before { transform: scaleX(1); }
+
+/* shimmer sweep */
+@keyframes shimmer {
+  0%   { transform: translateX(-120%) skewX(-18deg); }
+  100% { transform: translateX(280%) skewX(-18deg); }
+}
+.service-unit::after {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(100deg, transparent 30%, rgba(255,255,255,0.3) 50%, transparent 70%);
+  opacity: 0; pointer-events: none; border-radius: 28px;
+}
+.service-unit.active-card::after { opacity: 1; animation: shimmer 0.9s ease forwards; }
+
+/* ── CARD IMAGE: full-width top banner ── */
+.service-card-img {
+  flex-shrink: 0;
+  width: calc(100% + 64px);
+  margin: -36px -32px 24px -32px;
+  height: 200px;
+  position: relative; overflow: hidden;
+  border-radius: 28px 28px 0 0;
+}
+.service-card-img img {
+  width: 100%; height: 100%;
+  object-fit: cover; display: block;
+  transition: transform 0.55s cubic-bezier(0.2,0.9,0.4,1.1);
+}
+.service-unit.active-card .service-card-img img { transform: scale(1.05); }
+.service-card-img::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(to bottom, rgba(10,0,5,0.08) 0%, rgba(58,10,24,0.5) 100%);
+  pointer-events: none;
+}
+.service-unit.active-card .service-card-img::after {
+  background: linear-gradient(to bottom, rgba(10,0,5,0.03) 0%, rgba(200,148,42,0.08) 100%);
+}
+
+/* badge — gold theme matching your website */
+.service-card-badge {
+  position: absolute; top: 14px; left: 14px; z-index: 3;
+  background: linear-gradient(135deg, #c8942a, #e8b84b);
+  color: #1a0800;
+  font-family: 'Poppins', sans-serif;
+  font-size: 9px; font-weight: 700;
+  letter-spacing: 2.5px; text-transform: uppercase;
+  padding: 5px 14px; border-radius: 50px;
+  box-shadow: 0 4px 14px rgba(200,148,42,0.5);
+}
+
+/* content */
+.service-content { flex: 1; display: flex; flex-direction: column; }
+.service-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 24px; font-weight: 600;
+  color: rgba(255,255,255,0.9); line-height: 1.25;
+  margin-bottom: 12px; transition: color 0.25s;
+}
+.service-unit.active-card .service-title { color: #1a2a3a; }
+.service-desc {
+  font-size: 14px; line-height: 1.7;
+  color: rgba(255,255,255,0.55); font-weight: 400; flex: 1;
+}
+.service-unit.active-card .service-desc { color: #2c241c; opacity: 1; }
+.service-unit:not(.active-card) .service-desc {
+  display: -webkit-box; -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical; overflow: hidden;
+}
+.service-meta {
+  margin-top: 20px; padding-top: 14px;
+  border-top: 1px solid rgba(200,148,42,0.2);
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 11px; font-weight: 600;
+  letter-spacing: 1.5px; text-transform: uppercase;
+  color: #c8942a; transition: color 0.3s;
+}
+.service-unit.active-card .service-meta { color: #b26a3a; }
+.service-learn {
+  display: none; margin-top: 18px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px; font-weight: 700; color: #b26a3a;
+  text-decoration: none; border-bottom: 2px solid #c8942a;
+  padding-bottom: 2px; width: fit-content;
+  transition: color 0.25s, border-color 0.25s;
+}
+.service-unit.active-card .service-learn { display: inline-block; }
+.service-learn:hover { color: #e8b84b; border-color: #e8b84b; }
+
+/* arrows */
+.carousel-btn {
+  position: absolute; top: 50%; transform: translateY(-50%);
+  width: 52px; height: 52px; border-radius: 50%;
+  background: rgba(255,255,255,0.1);
+  border: 1.5px solid rgba(200,148,42,0.4);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+  cursor: pointer; display: flex; align-items: center; justify-content: center;
+  z-index: 20; transition: background 0.25s, box-shadow 0.25s, transform 0.25s;
+}
+.carousel-btn:hover {
+  background: rgba(200,148,42,0.2);
+  box-shadow: 0 8px 30px rgba(200,148,42,0.25);
+  transform: translateY(-50%) scale(1.1);
+}
+.carousel-btn svg { width: 22px; height: 22px; stroke: #e8b84b; stroke-width: 2.5; fill: none; }
+.carousel-prev { left: 0; }
+.carousel-next { right: 0; }
+
+/* dots + pause */
+.carousel-controls { display: flex; align-items: center; justify-content: center; gap: 14px; margin-top: 10px; }
+.carousel-pause {
+  width: 36px; height: 36px; border-radius: 50%;
+  border: 1.5px solid rgba(200,148,42,0.4);
+  background: rgba(255,255,255,0.08); cursor: pointer;
+  display: flex; align-items: center; justify-content: center; transition: background 0.25s;
+}
+.carousel-pause:hover { background: rgba(200,148,42,0.2); }
+.carousel-pause svg { width: 14px; height: 14px; fill: #e8b84b; }
+.carousel-dots { display: flex; gap: 8px; align-items: center; }
+.c-dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: rgba(200,148,42,0.3); cursor: pointer;
+  transition: background 0.3s, transform 0.3s;
+}
+.c-dot.active { background: #c8942a; transform: scale(1.35); }
+
+/* view all */
+.view-all-wrapper {
+  text-align: center; margin-top: 40px;
+  opacity: 0; transform: translateY(20px);
+  transition: opacity 0.6s ease 0.4s, transform 0.6s ease 0.4s;
+}
+.view-all-wrapper.in { opacity: 1; transform: translateY(0); }
+.view-link {
+  display: inline-flex; align-items: center; gap: 12px;
+  font-family: 'Poppins', sans-serif; font-weight: 600; font-size: 15px;
+  letter-spacing: 1.2px; color: #e8b84b; cursor: pointer;
+  padding: 12px 28px; border-radius: 50px; text-decoration: none;
+  background: rgba(200,148,42,0.1); border: 1px solid rgba(200,148,42,0.35);
+  transition: all 0.3s ease;
+}
+.view-link:hover {
+  gap: 20px; background: rgba(200,148,42,0.2);
+  border-color: rgba(200,148,42,0.6);
+  box-shadow: 0 6px 18px rgba(200,148,42,0.2); transform: translateY(-2px);
+}
+.view-link svg { width: 20px; stroke: #e8b84b; stroke-width: 2; transition: transform .3s; }
+.view-link:hover svg { transform: translateX(6px); }
+
+/* responsive */
+@media(max-width:960px){
+  .services-showcase { padding: 70px 30px 90px; }
+  .showcase-header h2 { font-size: 38px; }
+  .service-unit { flex: 0 0 300px; min-height: 440px; }
+  .carousel-prev { left: 0; }
+  .carousel-next { right: 0; }
+}
+@media(max-width:600px){
+  .services-showcase { padding: 60px 20px 80px; }
+  .showcase-header h2 { font-size: 28px; }
+  .service-unit { flex: 0 0 80vw; min-height: 420px; }
+  .carousel-prev { left: 0; }
+  .carousel-next { right: 0; }
+}
+/* ══════════════════════════════════════════
+   WAVE DIVIDER 3 (rose → light warm white)
+══════════════════════════════════════════ */
+.wave-divider-about {
+  display: block; width: 100%; height: 100px;
+  background: #fdf9f5;
+  position: relative; z-index: 5; margin-bottom: -2px;
+}
+.wave-divider-about svg { display: block; width: 100%; height: 100%; }
+
+/* ══════════════════════════════════════════
+   ABOUT SECTION — REDESIGNED (grid removed + brand color #ff2e63)
+══════════════════════════════════════════ */
+.about-section {
+  background: linear-gradient(150deg, #fdf9f5 0%, #f8f2ec 50%, #fdf4f7 100%);
+  padding: 120px 80px 130px;
+  position: relative;
+  overflow: hidden;
+  font-family: 'DM Sans', sans-serif;
+}
+
+/* animated flowing orbs - replaced blue with brand pink */
+.about-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  pointer-events: none;
+  animation: orbDrift 12s ease-in-out infinite alternate;
+}
+.about-orb-1 {
+  width: 500px; height: 500px;
+  background: radial-gradient(circle, rgba(255,46,99,0.08), transparent 70%);
+  top: -100px; right: -100px;
+  animation-duration: 14s;
+}
+.about-orb-2 {
+  width: 400px; height: 400px;
+  background: radial-gradient(circle, rgba(178,106,58,0.08), transparent 70%);
+  bottom: -80px; left: -80px;
+  animation-duration: 10s; animation-direction: normal;
+}
+.about-orb-3 {
+  width: 280px; height: 280px;
+  background: radial-gradient(circle, rgba(179,78,110,0.07), transparent 70%);
+  top: 40%; left: 40%;
+  animation-duration: 18s;
+}
+@keyframes orbDrift {
+  0%   { transform: translate(0, 0) scale(1); }
+  100% { transform: translate(40px, 30px) scale(1.15); }
+}
+
+/* GRID REMOVED: no background grids */
+.about-section::before {
+  display: none;
+}
+
+.about-wrap {
+  max-width: 1300px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+/* ── TOP LABEL ROW (brand pink) ── */
+.about-top-label {
+  display: flex; align-items: center; gap: 14px;
+  margin-bottom: 60px;
+  opacity: 0; transform: translateY(24px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.about-top-label.in { opacity: 1; transform: translateY(0); }
+.about-toggle-pill {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: rgba(255,46,99,0.07);
+  border: 1px solid rgba(255,46,99,0.22);
+  border-radius: 50px; padding: 8px 20px;
+}
+.about-toggle-sw {
+  width: 34px; height: 18px;
+  background: linear-gradient(90deg, #ff2e63, #ff6a88);
+  border-radius: 20px; position: relative; flex-shrink: 0;
+}
+.about-toggle-sw::after {
+  content: '';
+  position: absolute; top: 3px; right: 3px;
+  width: 12px; height: 12px;
+  border-radius: 50%; background: #fff;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+}
+.about-toggle-text {
+  font-size: 10px; font-weight: 700; letter-spacing: 2.5px;
+  text-transform: uppercase; color: #ff2e63;
+}
+
+/* ── MAIN GRID ── */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 0;
+  align-items: stretch;
+  border-radius: 32px;
+  overflow: hidden;
+  box-shadow: 0 32px 80px rgba(0,0,0,0.08), 0 2px 0 rgba(255,255,255,0.8);
+}
+
+/* LEFT PANEL — image with overlays */
+.about-img-panel {
+  position: relative;
+  min-height: 560px;
+  opacity: 0;
+  transform: translateX(-40px);
+  transition: opacity 1s ease, transform 1s cubic-bezier(0.2,0.9,0.4,1);
+}
+.about-img-panel.in { opacity: 1; transform: translateX(0); }
+
+.about-img-panel img {
+  width: 100%; height: 100%;
+  object-fit: cover; display: block;
+}
+/* dark gradient overlay on image */
+.about-img-panel::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(135deg, rgba(10,20,60,0.35) 0%, rgba(10,20,60,0.1) 60%, transparent 100%);
+}
+
+/* floating stat cards on image */
+.about-float-card {
+  position: absolute;
+  z-index: 3;
+  background: rgba(255,255,255,0.95);
+  backdrop-filter: blur(14px);
+  border-radius: 18px;
+  padding: 16px 22px;
+  box-shadow: 0 12px 36px rgba(255,46,99,0.12);
+  border: 1px solid rgba(255,255,255,0.9);
+}
+.about-float-card-1 {
+  bottom: 36px; left: 28px;
+  animation: floatUp 5s ease-in-out infinite;
+}
+.about-float-card-2 {
+  top: 36px; right: 28px;
+  animation: floatUp 6s ease-in-out infinite reverse;
+}
+@keyframes floatUp {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-10px); }
+}
+.afc-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 38px; font-weight: 700; line-height: 1;
+  background: linear-gradient(135deg, #ff2e63, #ff6a88);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+}
+.afc-label {
+  font-size: 11px; font-weight: 600; letter-spacing: 1px;
+  color: #5a4a38; margin-top: 4px; text-transform: uppercase;
+}
+/* live dot */
+.afc-live {
+  display: flex; align-items: center; gap: 6px;
+  margin-bottom: 8px;
+}
+.afc-live-dot {
+  width: 7px; height: 7px; border-radius: 50%;
+  background: #22c55e;
+  box-shadow: 0 0 8px #22c55e;
+  animation: blink 1.8s ease-in-out infinite;
+}
+.afc-live-text {
+  font-size: 9px; font-weight: 700; letter-spacing: 2px;
+  text-transform: uppercase; color: #22c55e;
+}
+
+/* badge top-left of image */
+.about-img-badge {
+  position: absolute; top: 28px; left: 28px; z-index: 3;
+  background: linear-gradient(135deg, #b26a3a, #b34e6e);
+  color: #fff; border-radius: 50px;
+  padding: 9px 18px;
+  font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase;
+  display: flex; align-items: center; gap: 7px;
+  box-shadow: 0 6px 20px rgba(150,60,80,0.3);
+}
+.about-img-badge-dot {
+  width: 7px; height: 7px; border-radius: 50%;
+  background: rgba(255,255,255,0.8);
+  animation: blink 1.8s ease-in-out infinite;
+}
+
+/* RIGHT PANEL — text */
+.about-text-panel {
+  background: #ffffff;
+  padding: 56px 52px;
+  display: flex; flex-direction: column; justify-content: center;
+  opacity: 0;
+  transform: translateX(40px);
+  transition: opacity 1s ease 0.12s, transform 1s cubic-bezier(0.2,0.9,0.4,1) 0.12s;
+}
+.about-text-panel.in { opacity: 1; transform: translateX(0); }
+
+/* heading with reveal lines */
+.about-heading {
+  font-family: 'Poppins', sans-serif;
+  font-size: 36px; font-weight: 800; line-height: 1.22;
+  color: #0f1a2e; margin-bottom: 0;
+  letter-spacing: -0.02em;
+}
+.ah-line { display: block; overflow: hidden; }
+.ah-line span {
+  display: inline-block;
+  transform: translateY(110%); opacity: 0;
+  transition: transform 0.85s cubic-bezier(0.2,0.9,0.4,1), opacity 0.85s ease;
+}
+.about-text-panel.in .ah-line:nth-child(1) span { transform: translateY(0); opacity: 1; transition-delay: 0.18s; }
+.about-text-panel.in .ah-line:nth-child(2) span { transform: translateY(0); opacity: 1; transition-delay: 0.30s; }
+.about-text-panel.in .ah-line:nth-child(3) span { transform: translateY(0); opacity: 1; transition-delay: 0.42s; }
+
+/* animated progress bar separator (brand pink) */
+.about-progress-bar {
+  height: 3px;
+  background: #eee;
+  border-radius: 3px;
+  margin: 26px 0;
+  overflow: hidden;
+}
+.about-progress-fill {
+  height: 100%; width: 0;
+  background: linear-gradient(90deg, #ff2e63, #ff6a88);
+  border-radius: 3px;
+  transition: width 1.4s cubic-bezier(0.22,1,0.36,1) 0.5s;
+}
+.about-text-panel.in .about-progress-fill { width: 100%; }
+
+.about-body-text {
+  font-size: 15px; line-height: 1.8;
+  color: #4a5568; font-weight: 400;
+  margin-bottom: 36px;
+  opacity: 0; transform: translateY(14px);
+  transition: opacity 0.8s ease 0.5s, transform 0.8s ease 0.5s;
+}
+.about-text-panel.in .about-body-text { opacity: 1; transform: translateY(0); }
+
+/* 3 mini stat pills (brand pink) */
+.about-mini-stats {
+  display: flex; gap: 12px; flex-wrap: wrap;
+  margin-bottom: 36px;
+  opacity: 0; transform: translateY(14px);
+  transition: opacity 0.8s ease 0.62s, transform 0.8s ease 0.62s;
+}
+.about-text-panel.in .about-mini-stats { opacity: 1; transform: translateY(0); }
+.amstat {
+  flex: 1; min-width: 90px;
+  background: linear-gradient(135deg, #fff0f3, #ffeef4);
+  border: 1px solid rgba(255,46,99,0.15);
+  border-radius: 16px; padding: 14px 16px;
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+  cursor: default;
+}
+.amstat:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(255,46,99,0.15);
+  border-color: rgba(255,46,99,0.3);
+}
+.amstat-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 32px; font-weight: 700; line-height: 1;
+  background: linear-gradient(120deg, #ff2e63, #ff6a88);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  display: block;
+}
+.amstat-label {
+  font-size: 10px; font-weight: 600; letter-spacing: 0.8px;
+  color: #6b7280; margin-top: 5px; display: block;
+}
+
+/* CTA + director */
+.about-cta-row {
+  display: flex; align-items: center; gap: 20px; flex-wrap: wrap;
+  opacity: 0; transform: translateY(14px);
+  transition: opacity 0.8s ease 0.75s, transform 0.8s ease 0.75s;
+}
+.about-text-panel.in .about-cta-row { opacity: 1; transform: translateY(0); }
+
+.about-btn {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: linear-gradient(135deg, #ff2e63, #ff6a88);
+  color: #fff; text-decoration: none;
+  padding: 14px 30px; border-radius: 50px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px; font-weight: 700;
+  box-shadow: 0 8px 24px rgba(255,46,99,0.28);
+  transition: transform 0.3s, box-shadow 0.3s;
+  position: relative; overflow: hidden;
+}
+/* shimmer on btn */
+.about-btn::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(100deg, transparent 30%, rgba(255,255,255,0.22) 50%, transparent 70%);
+  opacity: 0;
+}
+.about-btn:hover::after { opacity: 1; animation: shimmerBtn 0.65s ease forwards; }
+@keyframes shimmerBtn {
+  0%   { transform: translateX(-100%) skewX(-15deg); }
+  100% { transform: translateX(200%)  skewX(-15deg); }
+}
+.about-btn:hover { transform: translateY(-2px); box-shadow: 0 14px 32px rgba(255,46,99,0.38); }
+.about-btn svg { width: 16px; stroke: #fff; stroke-width: 2.5; fill: none; transition: transform 0.3s; }
+.about-btn:hover svg { transform: translateX(5px); }
+
+/* director */
+.about-dir-wrap {
+  display: flex; align-items: center; gap: 12px;
+}
+.about-dir-avatar {
+  width: 50px; height: 50px; border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid rgba(255,46,99,0.3);
+  box-shadow: 0 4px 14px rgba(255,46,99,0.2);
+  background: #ffdfe6;
+}
+.about-dir-name {
+  font-family: 'Poppins', sans-serif;
+  font-size: 13px; font-weight: 700; color: #0f1a2e;
+  line-height: 1.3;
+}
+.about-dir-role {
+  font-size: 11px; color: #6b7280; font-weight: 400; margin-top: 2px;
+}
+
+.of-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 18px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,46,99,0.3);
+  color: #ff2e63;
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.of-pill-dot {
+  width: 8px;
+  height: 8px;
+  background: #ff2e63;
+  border-radius: 50%;
+}
+
+/* responsive */
+@media(max-width: 960px) {
+  .about-section { padding: 80px 30px 100px; }
+  .about-grid { grid-template-columns: 1fr; }
+  .about-img-panel { min-height: 320px; }
+  .about-heading { font-size: 28px; }
+  .about-text-panel { padding: 40px 32px; }
+}
+@media(max-width: 600px) {
+  .about-section { padding: 60px 20px 80px; }
+  .about-heading { font-size: 24px; }
+  .about-text-panel { padding: 32px 24px; }
+  .about-mini-stats { gap: 8px; }
+}
+
+
+/* ══════════════════════════════════════════
+   FAQ SECTION — ULTRA MODERN + ANIMATED + IMAGES
+══════════════════════════════════════════ */
+.wave-divider-faq {
+  display: block; width: 100%; height: 100px;
+  position: relative; z-index: 5; margin-bottom: -2px;
+ 
+}
+.wave-divider-faq svg { display: block; width: 100%; height: 100%; }
+.wave-divider-faq path:first-child { fill: #3a0a18; }
+.wave-divider-faq path:last-child { fill: #faf6f0; }
+
+.faq-section {
+  background: linear-gradient(150deg, #faf6f0 0%, #f0e8de 50%, #f5ede8 100%);
+  padding: 0 0 120px;
+  position: relative; overflow: hidden;
+  font-family: 'DM Sans', sans-serif;
+}
+
+/* animated blobs */
+.faq-blob {
+  position: absolute; pointer-events: none;
+  border-radius: 60% 40% 70% 30% / 50% 60% 40% 70%;
+  filter: blur(55px);
+  animation: morphBlob 18s ease-in-out infinite alternate;
+}
+.faq-blob-1 { width: 520px; height: 520px; background: rgba(122,21,48,0.07); top: -80px; right: -120px; }
+.faq-blob-2 { width: 380px; height: 380px; background: rgba(200,148,42,0.08); bottom: -60px; left: -80px; }
+@keyframes morphBlob {
+  0%   { border-radius: 60% 40% 70% 30% / 50% 60% 40% 70%; transform: scale(1) rotate(0deg); }
+  100% { border-radius: 30% 70% 40% 60% / 60% 30% 70% 40%; transform: scale(1.08) rotate(8deg); }
+}
+
+/* ── HERO HEADER ── */
+.faq-hero {
+  padding: 70px 80px 0;
+  display: flex; align-items: flex-end; justify-content: space-between;
+  gap: 40px; max-width: 1300px; margin: 0 auto;
+  position: relative; z-index: 2;
+}
+.faq-hero-left { opacity: 0; transform: translateY(30px); transition: opacity 0.85s ease, transform 0.85s cubic-bezier(0.2,0.9,0.4,1); }
+.faq-hero-left.in { opacity: 1; transform: translateY(0); }
+.faq-eyebrow { display: inline-flex; align-items: center; gap: 10px; margin-bottom: 20px; }
+.faq-eyebrow-line { width: 36px; height: 2px; background: linear-gradient(90deg, #7a1530, #c8942a); border-radius: 2px; position: relative; overflow: hidden; }
+.faq-eyebrow-line::after { content: ''; position: absolute; inset: 0; background: rgba(255,255,255,0.6); animation: scanLine 2s ease-in-out infinite; }
+@keyframes scanLine { 0% { transform: translateX(-100%); } 100% { transform: translateX(200%); } }
+.faq-eyebrow-text { font-size: 10px; font-weight: 700; letter-spacing: 3.5px; text-transform: uppercase; color: #7a1530; }
+.faq-big-title { font-family: 'Cormorant Garamond', serif; font-size: 64px; font-weight: 700; line-height: 1.1; color: #1a0808; letter-spacing: -0.02em; }
+.faq-big-title .fbt-italic { font-style: italic; background: linear-gradient(120deg, #7a1530, #b34e6e, #c8942a); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+.faq-hero-right { display: flex; gap: 20px; opacity: 0; transform: translateY(30px); transition: opacity 0.85s ease 0.2s, transform 0.85s ease 0.2s; }
+.faq-hero-right.in { opacity: 1; transform: translateY(0); }
+.faq-stat-card { background: rgba(255,255,255,0.9); backdrop-filter: blur(14px); border-radius: 22px; padding: 20px 28px; text-align: center; border: 1px solid rgba(122,21,48,0.15); transition: transform 0.3s, box-shadow 0.3s; cursor: default; box-shadow: 0 4px 20px rgba(122,21,48,0.06); }
+.faq-stat-card:hover { transform: translateY(-6px); box-shadow: 0 18px 40px rgba(122,21,48,0.14); }
+.faq-stat-num { font-family: 'Cormorant Garamond', serif; font-size: 46px; font-weight: 700; background: linear-gradient(120deg, #7a1530, #c8942a); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; display: block; line-height: 1; }
+.faq-stat-label { font-size: 10px; font-weight: 600; letter-spacing: 1px; color: #7a4a38; text-transform: uppercase; margin-top: 6px; display: block; }
+
+/* ══ NEW: IMAGE + CONTENT GRID LAYOUT ══ */
+.faq-main-grid {
+  max-width: 1300px; margin: 50px auto 0;
+  padding: 0 80px;
+  display: grid;
+  grid-template-columns: 420px 1fr;
+  gap: 40px;
+  align-items: start;
+  position: relative; z-index: 2;
+}
+
+/* ── LEFT: Image Stack ── */
+.faq-img-stack {
+  position: relative;
+  height: 580px;
+  opacity: 0; transform: translateX(-40px);
+  transition: opacity 0.9s ease, transform 0.9s cubic-bezier(0.2,0.9,0.4,1);
+}
+.faq-img-stack.in { opacity: 1; transform: translateX(0); }
+
+.faq-img-primary {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  border-radius: 28px;
+  overflow: hidden;
+  box-shadow: 0 24px 60px rgba(122,21,48,0.18);
+}
+.faq-img-primary img {
+  width: 100%; height: 100%; object-fit: cover;
+  transition: transform 0.8s cubic-bezier(0.2,0.9,0.4,1), filter 0.5s ease;
+  filter: brightness(0.85) saturate(0.9);
+}
+.faq-img-primary:hover img { transform: scale(1.05); filter: brightness(0.95) saturate(1.05); }
+/* gradient overlay on primary img */
+.faq-img-primary::after {
+  content: ''; position: absolute; inset: 0; pointer-events: none;
+  background: linear-gradient(160deg, rgba(122,21,48,0.3) 0%, transparent 55%, rgba(200,148,42,0.12) 100%);
+  border-radius: 28px;
+}
+
+/* floating mini image card (bottom right) */
+.faq-img-mini {
+  position: absolute;
+  bottom: -24px; right: -24px;
+  width: 180px; height: 150px;
+  border-radius: 20px; overflow: hidden;
+  border: 4px solid #faf6f0;
+  box-shadow: 0 16px 40px rgba(122,21,48,0.2);
+  animation: faqFloatUp 6s ease-in-out infinite;
+  z-index: 3;
+}
+.faq-img-mini img { width: 100%; height: 100%; object-fit: cover; }
+@keyframes faqFloatUp {
+  0%, 100% { transform: translateY(0) rotate(-1deg); }
+  50%       { transform: translateY(-10px) rotate(1deg); }
+}
+
+/* floating badge over image */
+.faq-img-badge {
+  position: absolute;
+  top: 24px; right: -16px;
+  background: rgba(255,255,255,0.95);
+  backdrop-filter: blur(12px);
+  border-radius: 18px; padding: 14px 20px;
+  display: flex; align-items: center; gap: 12px;
+  box-shadow: 0 10px 32px rgba(122,21,48,0.14);
+  border: 1px solid rgba(200,148,42,0.2);
+  animation: faqFloatUp 5s ease-in-out infinite reverse;
+  z-index: 3;
+}
+.faq-badge-icon {
+  width: 38px; height: 38px; border-radius: 12px;
+  background: linear-gradient(135deg, #7a1530, #c8942a);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.faq-badge-icon svg { width: 18px; height: 18px; stroke: #fff; stroke-width: 2; fill: none; }
+.faq-badge-text-big { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 700; color: #7a1530; line-height: 1; }
+.faq-badge-text-sm { font-size: 9px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: #7a4a38; margin-top: 2px; }
+
+/* image panel indicator dots */
+.faq-img-dots {
+  position: absolute; bottom: 20px; left: 20px; z-index: 4;
+  display: flex; gap: 6px;
+}
+.faq-img-dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: rgba(255,255,255,0.4);
+  cursor: pointer; transition: all 0.3s;
+}
+.faq-img-dot.active { width: 22px; border-radius: 3px; background: #fff; }
+
+/* ── RIGHT: Tabs + Panels ── */
+.faq-right-col {
+  display: flex; flex-direction: column; gap: 0;
+}
+
+.faq-tabs {
+  display: flex; flex-direction: column; gap: 8px;
+  opacity: 0; transform: translateX(30px);
+  transition: opacity 0.85s ease 0.1s, transform 0.85s cubic-bezier(0.2,0.9,0.4,1) 0.1s;
+}
+.faq-tabs.in { opacity: 1; transform: translateX(0); }
+
+.faq-tab {
+  position: relative; padding: 16px 20px;
+  cursor: pointer; border-radius: 18px;
+  transition: all 0.35s ease;
+  border: 1.5px solid transparent;
+  background: transparent;
+  display: flex; align-items: center; gap: 14px;
+}
+.faq-tab:hover { background: rgba(255,255,255,0.6); border-color: rgba(122,21,48,0.1); }
+.faq-tab.active {
+  background: rgba(255,255,255,0.9);
+  backdrop-filter: blur(8px);
+  border-color: rgba(122,21,48,0.2);
+  box-shadow: 0 8px 28px rgba(122,21,48,0.1);
+}
+.faq-tab-icon-wrap {
+  width: 40px; height: 40px; border-radius: 12px; flex-shrink: 0;
+  background: linear-gradient(135deg, rgba(122,21,48,0.08), rgba(200,148,42,0.06));
+  border: 1px solid rgba(122,21,48,0.12);
+  display: flex; align-items: center; justify-content: center;
+  transition: all 0.35s;
+}
+.faq-tab.active .faq-tab-icon-wrap {
+  background: linear-gradient(135deg, #7a1530, #c8942a);
+  border-color: transparent;
+  box-shadow: 0 6px 18px rgba(122,21,48,0.3);
+}
+.faq-tab-icon-wrap svg { width: 18px; height: 18px; stroke: #7a4a38; stroke-width: 1.8; fill: none; transition: stroke 0.3s; }
+.faq-tab.active .faq-tab-icon-wrap svg { stroke: #fff; }
+.faq-tab-info { flex: 1; }
+.faq-tab-num { font-size: 10px; color: #c8942a; opacity: 0.8; display: block; margin-bottom: 3px; letter-spacing: 1px; font-weight: 600; }
+.faq-tab-q { font-family: 'Poppins', sans-serif; font-size: 14px; font-weight: 500; color: #7a4a38; transition: color 0.25s; line-height: 1.4; }
+.faq-tab.active .faq-tab-q { font-weight: 700; color: #7a1530; }
+.faq-tab-arrow { flex-shrink: 0; opacity: 0; transform: translateX(-6px); transition: all 0.3s; }
+.faq-tab.active .faq-tab-arrow { opacity: 1; transform: translateX(0); }
+.faq-tab-arrow svg { width: 16px; stroke: #7a1530; stroke-width: 2; fill: none; }
+
+/* active indicator bar */
+.faq-tab::before {
+  content: ''; position: absolute; left: 0; top: 50%; transform: translateY(-50%);
+  width: 3px; height: 0; border-radius: 3px;
+  background: linear-gradient(180deg, #7a1530, #c8942a);
+  transition: height 0.35s cubic-bezier(0.2,0.9,0.4,1);
+}
+.faq-tab.active::before { height: 60%; }
+
+/* ── PANEL WRAP ── */
+.faq-panel-wrap {
+  margin-top: 28px;
+  opacity: 0; transform: translateY(20px);
+  transition: opacity 0.85s ease 0.25s, transform 0.85s ease 0.25s;
+}
+.faq-panel-wrap.in { opacity: 1; transform: translateY(0); }
+
+.faq-panel { display: none; animation: panelSlide 0.5s cubic-bezier(0.2,0.9,0.4,1) forwards; }
+.faq-panel.active { display: block; }
+@keyframes panelSlide { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+
+.faq-panel-card {
+  background: rgba(255,255,255,0.9); backdrop-filter: blur(10px);
+  border-radius: 24px; padding: 30px 32px;
+  border: 1px solid rgba(122,21,48,0.1);
+  box-shadow: 0 8px 32px rgba(122,21,48,0.08);
+  position: relative; overflow: hidden;
+}
+/* decorative corner accent */
+.faq-panel-card::before {
+  content: ''; position: absolute; top: 0; right: 0;
+  width: 120px; height: 120px;
+  background: radial-gradient(circle at top right, rgba(200,148,42,0.1), transparent 70%);
+  pointer-events: none;
+}
+
+.faq-panel-title { font-family: 'Poppins', sans-serif; font-size: 22px; font-weight: 800; color: #7a1530; margin-bottom: 14px; line-height: 1.3; }
+.faq-panel-body { font-size: 14px; line-height: 1.85; color: #5a3a2a; margin-bottom: 18px; }
+.faq-panel-list { list-style: none; display: flex; flex-direction: column; gap: 10px; margin-bottom: 24px; }
+.faq-panel-list li {
+  display: flex; gap: 10px; align-items: flex-start;
+  background: linear-gradient(135deg, rgba(250,246,240,0.9), rgba(243,237,227,0.6));
+  border-radius: 14px; padding: 11px 14px;
+  transition: transform 0.2s, box-shadow 0.2s;
+  color: #4a3020; font-size: 14px; line-height: 1.5;
+  border: 1px solid rgba(200,148,42,0.08);
+}
+.faq-panel-list li:hover { transform: translateX(4px); box-shadow: 0 4px 14px rgba(122,21,48,0.08); }
+.faq-li-icon {
+  flex-shrink: 0; width: 20px; height: 20px; border-radius: 50%;
+  background: linear-gradient(135deg, #7a1530, #c8942a);
+  display: flex; align-items: center; justify-content: center;
+  margin-top: 1px;
+}
+.faq-li-icon::after { content: '✓'; color: white; font-size: 11px; font-weight: bold; }
+
+/* progress + nav row */
+.faq-panel-footer {
+  display: flex; align-items: center; justify-content: space-between;
+  padding-top: 20px; border-top: 1px solid rgba(122,21,48,0.1);
+  gap: 16px;
+}
+.faq-progress { flex: 1; display: flex; align-items: center; gap: 10px; }
+.faq-progress-track { flex: 1; height: 4px; background: rgba(122,21,48,0.1); border-radius: 4px; overflow: hidden; }
+.faq-progress-fill { height: 100%; background: linear-gradient(90deg, #7a1530, #c8942a); border-radius: 4px; transition: width 0.5s cubic-bezier(0.2,0.9,0.4,1); }
+.faq-progress-label { font-size: 11px; color: #7a4a38; font-weight: 600; letter-spacing: 0.5px; white-space: nowrap; }
+.faq-nav { display: flex; gap: 10px; }
+.faq-nav-btn {
+  width: 40px; height: 40px; border-radius: 50%;
+  background: white; border: 1.5px solid rgba(122,21,48,0.2);
+  cursor: pointer; transition: all 0.25s;
+  display: flex; align-items: center; justify-content: center;
+}
+.faq-nav-btn:hover { background: #7a1530; border-color: #7a1530; transform: scale(1.08); }
+.faq-nav-btn:hover svg { stroke: white; }
+.faq-nav-btn svg { stroke: #7a1530; stroke-width: 2; fill: none; transition: stroke 0.2s; }
+.faq-nav-btn:disabled { opacity: 0.35; cursor: default; pointer-events: none; }
+
+/* ── responsive ── */
+@media (max-width: 1100px) {
+  .faq-main-grid { grid-template-columns: 340px 1fr; padding: 0 50px; }
+  .faq-img-stack { height: 500px; }
+}
+@media (max-width: 960px) {
+  .faq-hero { flex-direction: column; padding: 40px 30px 0; }
+  .faq-big-title { font-size: 44px; }
+  .faq-main-grid { grid-template-columns: 1fr; padding: 0 30px; gap: 30px; }
+  .faq-img-stack { height: 320px; }
+  .faq-img-mini { width: 140px; height: 110px; bottom: -16px; right: -16px; }
+  .faq-img-badge { right: -10px; }
+}
+@media (max-width: 600px) {
+  .faq-big-title { font-size: 32px; }
+  .faq-hero { padding: 40px 20px 0; }
+  .faq-main-grid { padding: 0 20px; }
+  .faq-img-stack { height: 260px; }
+  .faq-img-badge { display: none; }
+  .faq-img-mini { width: 110px; height: 90px; }
+  .faq-hero-right { flex-wrap: wrap; gap: 12px; }
+  .faq-stat-card { padding: 14px 18px; }
+}
+
+
+/* ══════════════════════════════════════════
+   FOOTER — HERO-INSPIRED ANIMATED DESIGN (NO GLOP, STABLE)
+══════════════════════════════════════════ */
+.footer-modern {
+  position: relative;
+  background: #0a0005;
+  padding: 80px 60px 40px;
+  overflow: hidden;
+  color: rgba(255,255,255,0.85);
+  font-family: 'DM Sans', sans-serif;
+  border-top: 1px solid rgba(255,46,99,0.3);
+  z-index: 1;
+  isolation: isolate;
+}
+/* Animated canvas background - stable and non‑intrusive */
+#footer-bg-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  pointer-events: none;
+  z-index: 0;
+}
+.footer-container {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: space-between;
+  gap: 50px;
+  flex-wrap: wrap;
+}
+.footer-about,
+.footer-links,
+.footer-contact {
+  flex: 1;
+  min-width: 200px;
+}
+.footer-about h2 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 32px;
+  font-weight: 800;
+  background: linear-gradient(135deg, #ff2e63, #ff6a88);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 18px;
+  letter-spacing: -0.5px;
+}
+.footer-about p {
+  font-size: 14px;
+  line-height: 1.6;
+  color: rgba(255,255,255,0.7);
+  max-width: 300px;
+}
+.footer-links h3,
+.footer-contact h3 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: #ff2e63;
+  letter-spacing: 1px;
+}
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+}
+.footer-links li {
+  margin-bottom: 14px;
+  cursor: pointer;
+  transition: 0.3s;
+  font-size: 14px;
+  color: rgba(255,255,255,0.7);
+}
+.footer-links li:hover {
+  color: #ff2e63;
+  transform: translateX(5px);
+}
+.footer-contact p {
+  font-size: 14px;
+  line-height: 1.6;
+  color: rgba(255,255,255,0.7);
+  margin-bottom: 15px;
+}
+.footer-contact strong {
+  color: #ff6a88;
+}
+.footer-social {
+  margin-top: 24px;
+  display: flex;
+  gap: 12px;
+}
+.footer-social a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  background: rgba(255,255,255,0.08);
+  border-radius: 50%;
+  transition: 0.3s;
+  text-decoration: none;
+  border: 1px solid rgba(255,46,99,0.35);
+}
+.footer-social a i {
+  font-size: 18px;
+  color: #ff6a88;
+  transition: 0.3s;
+}
+.footer-social a:hover {
+  background: #ff2e63;
+  border-color: #ff2e63;
+  transform: translateY(-3px);
+}
+.footer-social a:hover i {
+  color: white;
+}
+.footer-bottom {
+  position: relative;
+  z-index: 2;
+  margin-top: 60px;
+  padding-top: 25px;
+  border-top: 1px solid rgba(255,46,99,0.2);
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+  font-size: 12px;
+  color: rgba(255,255,255,0.5);
+}
+.footer-policy {
+  display: flex;
+  gap: 24px;
+}
+.footer-policy span {
+  cursor: pointer;
+  transition: color 0.3s;
+}
+.footer-policy span:hover {
+  color: #ff2e63;
+}
+/* ══════════════════════════════════════════
+   NEWS SECTION — ULTRA MODERN REDESIGN
+══════════════════════════════════════════ */
+.news-section {
+  background: linear-gradient(135deg, #3a0a18 0%, #5c1028 55%, #4a0c20 100%);
+  padding: 0 0 120px;
+  font-family: 'DM Sans', sans-serif;
+  position: relative;
+  overflow: hidden;
+}
+
+/* deep noise texture */
+.news-section > .news-noise {
+  position: absolute; inset: 0; pointer-events: none; z-index: 0; opacity: 0.04;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* ── LIVE TICKER STRIP ── */
+.news-ticker-wrap {
+  background: linear-gradient(90deg, #c8942a, #e8b84b, #c8942a);
+  padding: 10px 0;
+  overflow: hidden;
+  position: relative;
+  z-index: 3;
+  margin-bottom: 80px;
+}
+.news-ticker-track {
+  display: flex;
+  gap: 0;
+  animation: tickerScroll 38s linear infinite;
+  white-space: nowrap;
+  width: max-content;
+}
+.news-ticker-wrap:hover .news-ticker-track { animation-play-state: paused; }
+@keyframes tickerScroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.news-ticker-item {
+  display: inline-flex; align-items: center; gap: 12px;
+  padding: 0 40px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 12px; font-weight: 700;
+  color: #3a0a18; letter-spacing: 1.5px; text-transform: uppercase;
+}
+.news-ticker-dot {
+  width: 5px; height: 5px; border-radius: 50%;
+  background: rgba(58,10,24,0.5); flex-shrink: 0;
+}
+
+/* ── CONTAINER ── */
+.news-container { max-width: 1320px; margin: 0 auto; padding: 0 80px; position: relative; z-index: 2; }
+
+/* ── HEADER ROW ── */
+.news-header-row {
+  display: flex; align-items: flex-end; justify-content: space-between;
+  gap: 40px; margin-bottom: 60px;
+  opacity: 0; transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.2,0.9,0.4,1);
+}
+.news-header-row.nws-in { opacity: 1; transform: translateY(0); }
+.news-header-left {}
+.news-eyebrow {
+  display: inline-flex; align-items: center; gap: 10px; margin-bottom: 14px;
+}
+.news-eyebrow-bar {
+  width: 40px; height: 3px;
+  background: linear-gradient(90deg, #c8942a, #e8b84b);
+  border-radius: 3px; position: relative; overflow: hidden;
+}
+.news-eyebrow-bar::after {
+  content: ''; position: absolute; inset: 0;
+  background: rgba(255,255,255,0.7);
+  animation: eyebrowScan 2.2s ease-in-out infinite;
+}
+@keyframes eyebrowScan { 0%{transform:translateX(-100%)} 100%{transform:translateX(200%)} }
+.news-eyebrow-text {
+  font-size: 11px; font-weight: 700; letter-spacing: 3.5px;
+  text-transform: uppercase; color: #e8b84b;
+}
+.news-big-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 62px; font-weight: 700; line-height: 1.05;
+  color: #fff; letter-spacing: -0.02em;
+}
+.news-big-title em {
+  font-style: italic;
+  background: linear-gradient(120deg, #c8942a, #e8b84b);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+}
+.news-header-right { flex-shrink: 0; text-align: right; }
+.news-count-badge {
+  display: flex; flex-direction: column; align-items: flex-end; gap: 4px;
+}
+.news-count-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 72px; font-weight: 700; line-height: 1;
+  color: transparent;
+  -webkit-text-stroke: 1.5px rgba(200,148,42,0.35);
+}
+.news-count-label {
+  font-size: 11px; letter-spacing: 3px; text-transform: uppercase;
+  color: rgba(255,255,255,0.35); font-weight: 500;
+}
+.news-view-all {
+  display: inline-flex; align-items: center; gap: 8px; margin-top: 16px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 12px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase;
+  color: #e8b84b; text-decoration: none;
+  padding: 10px 24px; border-radius: 50px;
+  border: 1px solid rgba(200,148,42,0.35);
+  background: rgba(200,148,42,0.07);
+  transition: all 0.35s ease;
+}
+.news-view-all:hover {
+  background: rgba(200,148,42,0.18); gap: 14px;
+  box-shadow: 0 8px 24px rgba(200,148,42,0.2);
+}
+.news-view-all svg { transition: transform 0.3s; stroke: #e8b84b; }
+.news-view-all:hover svg { transform: translateX(4px); }
+
+/* ── MASONRY GRID ── */
+.nws-masonry {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr 0.85fr;
+  grid-template-rows: auto auto;
+  gap: 20px;
+}
+
+/* ── BASE CARD ── */
+.nws-card {
+  position: relative; border-radius: 22px; overflow: hidden;
+  cursor: pointer;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  opacity: 0; transform: translateY(50px) scale(0.97);
+  transition:
+    opacity 0.75s ease,
+    transform 0.75s cubic-bezier(0.2,0.9,0.4,1),
+    box-shadow 0.45s ease,
+    border-color 0.4s ease;
+  will-change: transform;
+}
+.nws-card.nws-in { opacity: 1; transform: translateY(0) scale(1); }
+
+/* stagger */
+.nws-card:nth-child(1) { transition-delay: 0.05s; }
+.nws-card:nth-child(2) { transition-delay: 0.18s; }
+.nws-card:nth-child(3) { transition-delay: 0.30s; }
+.nws-card:nth-child(4) { transition-delay: 0.20s; }
+.nws-card:nth-child(5) { transition-delay: 0.33s; }
+
+.nws-card:hover {
+  box-shadow: 0 32px 70px rgba(0,0,0,0.45), 0 0 0 1.5px rgba(200,148,42,0.3);
+  border-color: rgba(200,148,42,0.25);
+}
+
+/* ── BIG CARD (col 1, row 1+2) ── */
+.nws-card-big {
+  grid-column: 1; grid-row: 1 / 3;
+}
+.nws-card-big .nws-img {
+  height: 340px; position: relative; overflow: hidden;
+}
+
+/* ── SMALL CARD ── */
+.nws-card-sm .nws-img {
+  height: 170px; position: relative; overflow: hidden;
+}
+
+/* ── WIDE CARD (spans 2 cols at bottom) ── */
+.nws-card-wide {
+  grid-column: 2 / 4; grid-row: 2;
+  display: flex; flex-direction: row; align-items: stretch;
+}
+.nws-card-wide .nws-img {
+  width: 220px; min-width: 220px; height: auto; overflow: hidden; position: relative;
+  flex-shrink: 0;
+}
+.nws-card-wide .nws-body {
+  display: flex; flex-direction: column; justify-content: center;
+}
+
+/* image shared styles */
+.nws-img img {
+  width: 100%; height: 100%; object-fit: cover;
+  transition: transform 0.65s cubic-bezier(0.2,0.9,0.4,1), filter 0.5s ease;
+  filter: brightness(0.82) saturate(0.85);
+}
+.nws-card:hover .nws-img img {
+  transform: scale(1.09);
+  filter: brightness(1) saturate(1.05);
+}
+/* image gradient overlay */
+.nws-img::after {
+  content: ''; position: absolute; inset: 0; pointer-events: none;
+  background: linear-gradient(to top, rgba(35,5,15,0.75) 0%, rgba(35,5,15,0.2) 55%, transparent 100%);
+}
+.nws-card-wide .nws-img::after {
+  background: linear-gradient(to right, rgba(35,5,15,0.6) 0%, transparent 70%);
+}
+
+/* ── TAG ── */
+.nws-tag {
+  position: absolute; top: 14px; left: 14px; z-index: 3;
+  padding: 5px 14px; border-radius: 30px;
+  font-size: 9px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase;
+  color: #1a0808;
+  background: linear-gradient(135deg, #c8942a, #e8b84b);
+  box-shadow: 0 4px 16px rgba(200,148,42,0.45);
+}
+
+/* ── NUMBER BADGE (big card only) ── */
+.nws-number {
+  position: absolute; bottom: 18px; right: 20px; z-index: 3;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 100px; font-weight: 700; line-height: 1;
+  color: transparent; -webkit-text-stroke: 1px rgba(200,148,42,0.18);
+  pointer-events: none; user-select: none;
+  transition: -webkit-text-stroke 0.4s;
+}
+.nws-card-big:hover .nws-number { -webkit-text-stroke: 1px rgba(200,148,42,0.45); }
+
+/* ── BODY ── */
+.nws-body { padding: 24px 26px 26px; position: relative; z-index: 2; }
+.nws-card-wide .nws-body { padding: 26px 30px; }
+
+/* animated top accent line */
+.nws-body::before {
+  content: ''; display: block; height: 2px;
+  width: 0; margin-bottom: 18px;
+  background: linear-gradient(90deg, #c8942a, #e8b84b 60%, transparent);
+  border-radius: 2px;
+  transition: width 1.1s cubic-bezier(0.2,0.9,0.4,1) 0.4s;
+}
+.nws-card.nws-in .nws-body::before { width: 60px; }
+.nws-card:hover .nws-body::before { width: 100%; transition-delay: 0s; transition-duration: 0.4s; }
+
+.nws-meta { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+.nws-date {
+  font-size: 10px; font-weight: 700; letter-spacing: 2px;
+  text-transform: uppercase; color: #c8942a;
+}
+.nws-sep { width: 3px; height: 3px; border-radius: 50%; background: rgba(200,148,42,0.45); }
+.nws-readtime { font-size: 10px; color: rgba(255,255,255,0.3); letter-spacing: 0.5px; }
+
+.nws-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 600; color: #fff; line-height: 1.3;
+  transition: color 0.3s ease;
+  margin-bottom: 10px;
+}
+.nws-card-big .nws-title { font-size: 26px; margin-bottom: 14px; }
+.nws-card-sm  .nws-title { font-size: 19px; }
+.nws-card-wide .nws-title { font-size: 22px; }
+.nws-card:hover .nws-title { color: #e8b84b; }
+
+.nws-excerpt {
+  font-size: 13px; color: rgba(255,255,255,0.48); line-height: 1.75;
+  font-weight: 300; margin-bottom: 20px;
+}
+.nws-card-sm .nws-excerpt { display: none; }
+.nws-card-wide .nws-excerpt { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; margin-bottom: 18px; }
+
+/* ── CTA LINK ── */
+.nws-link {
+  display: inline-flex; align-items: center; gap: 7px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase;
+  color: #e8b84b; text-decoration: none;
+  transition: gap 0.3s ease, color 0.3s ease;
+}
+.nws-link::after {
+  content: '→'; font-size: 13px;
+  display: inline-block; transition: transform 0.3s ease;
+}
+.nws-link:hover { color: #fff; gap: 12px; }
+.nws-link:hover::after { transform: translateX(5px); }
+
+/* ── FLOATING LIVE BADGE on big card image ── */
+.nws-live-badge {
+  position: absolute; top: 16px; right: 16px; z-index: 3;
+  background: rgba(10,0,5,0.75); backdrop-filter: blur(8px);
+  border: 1px solid rgba(200,148,42,0.3);
+  border-radius: 50px; padding: 6px 14px;
+  display: flex; align-items: center; gap: 7px;
+}
+.nws-live-dot {
+  width: 7px; height: 7px; border-radius: 50%; background: #22c55e;
+  box-shadow: 0 0 8px #22c55e; animation: blink 1.6s ease-in-out infinite;
+}
+.nws-live-text { font-size: 9px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #22c55e; }
+
+/* ── BOTTOM MARQUEE ── */
+.nws-bottom-ticker {
+  margin-top: 70px;
+  overflow: hidden; position: relative;
+  border-top: 1px solid rgba(200,148,42,0.12);
+  padding-top: 30px;
+}
+.nws-bottom-track {
+  display: flex; gap: 0; width: max-content;
+  animation: tickerScroll2 50s linear infinite;
+}
+@keyframes tickerScroll2 {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.nws-bottom-item {
+  display: inline-flex; align-items: center; gap: 16px;
+  padding: 0 50px;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px; font-weight: 300;
+  color: rgba(255,255,255,0.15); letter-spacing: 0.02em;
+  white-space: nowrap;
+  transition: color 0.3s;
+}
+.nws-bottom-item strong { font-weight: 600; color: rgba(200,148,42,0.5); }
+.nws-bottom-star { color: rgba(200,148,42,0.3); font-size: 14px; }
+
+@media(max-width:960px){
+  .news-section { padding: 0 0 90px; }
+  .news-container { padding: 0 30px; }
+  .nws-masonry { grid-template-columns: 1fr 1fr; }
+  .nws-card-big { grid-column: 1 / 3; grid-row: auto; }
+  .nws-card-big .nws-img { height: 260px; }
+  .nws-card-wide { grid-column: 1 / 3; flex-direction: column; }
+  .nws-card-wide .nws-img { width: 100%; height: 180px; }
+  .news-big-title { font-size: 42px; }
+  .news-count-num { font-size: 50px; }
+}
+@media(max-width:600px){
+  .nws-masonry { grid-template-columns: 1fr; }
+  .nws-card-big { grid-column: 1; }
+  .nws-card-wide { grid-column: 1; }
+  .news-big-title { font-size: 34px; }
+  .news-header-row { flex-direction: column; align-items: flex-start; }
+}
+@media (max-width: 860px) {
+  .footer-modern { padding: 60px 30px 40px; }
+  .footer-container { flex-direction: column; gap: 40px; }
+  .footer-about p { max-width: 100%; }
+}
+
+/* ═══════════════════════════════════════
+   CONTACT — COMPACT MAROON THEME
+═══════════════════════════════════════ */
+
+.ct-wave-wrap {
+  display: block; width: 100%; height: 80px;
+  background: #fff6d5;
+  position: relative; z-index: 5; margin-bottom: -2px;
+}
+.ct-wave-wrap svg { display: block; width: 100%; height: 100%; }
+
+.contact-section {
+  position: relative;
+  background: #5a1230;
+  padding: 70px 80px 75px;
+  overflow: hidden;
+  font-family: 'DM Sans', sans-serif;
+}
+
+.contact-section::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.06'/%3E%3C/svg%3E");
+  opacity: 0.5; pointer-events: none; z-index: 0;
+}
+
+.contact-section::after {
+  content: '';
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(255,180,180,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,180,180,0.04) 1px, transparent 1px);
+  background-size: 52px 52px;
+  pointer-events: none; z-index: 0;
+}
+
+.ct-orb {
+  position: absolute; border-radius: 50%;
+  pointer-events: none; z-index: 0; filter: blur(70px);
+}
+.ct-orb-1 {
+  width: 500px; height: 500px;
+  background: radial-gradient(circle, rgba(255,80,120,0.18) 0%, transparent 70%);
+  top: -160px; right: -120px;
+  animation: ctOrb1 14s ease-in-out infinite alternate;
+}
+.ct-orb-2 {
+  width: 360px; height: 360px;
+  background: radial-gradient(circle, rgba(200,100,50,0.15) 0%, transparent 70%);
+  bottom: -80px; left: -80px;
+  animation: ctOrb2 18s ease-in-out infinite alternate;
+}
+.ct-orb-3 {
+  width: 260px; height: 260px;
+  background: radial-gradient(circle, rgba(255,46,99,0.1) 0%, transparent 70%);
+  top: 40%; left: 38%;
+  animation: ctOrb3 11s ease-in-out infinite alternate;
+}
+@keyframes ctOrb1 { 0%{transform:translate(0,0) scale(1);} 100%{transform:translate(-50px,40px) scale(1.15);} }
+@keyframes ctOrb2 { 0%{transform:translate(0,0);} 100%{transform:translate(40px,-30px) scale(1.1);} }
+@keyframes ctOrb3 { 0%{transform:translate(0,0) scale(1);} 100%{transform:translate(30px,-20px) scale(1.2);} }
+
+.ct-dot {
+  position: absolute; border-radius: 50%;
+  pointer-events: none; z-index: 1;
+}
+.ct-dot-1 { width:5px; height:5px; background:rgba(255,180,180,0.3); top:18%; left:7%;  animation:ctDot 9s ease-in-out infinite alternate; }
+.ct-dot-2 { width:4px; height:4px; background:rgba(255,200,100,0.35); top:65%; left:12%; animation:ctDot 13s ease-in-out infinite alternate reverse; }
+.ct-dot-3 { width:6px; height:6px; background:rgba(255,120,140,0.25); top:25%; right:8%; animation:ctDot 11s ease-in-out infinite alternate; }
+.ct-dot-4 { width:3px; height:3px; background:rgba(255,180,100,0.4);  bottom:22%; right:14%; animation:ctDot 7s ease-in-out infinite alternate reverse; }
+.ct-dot-5 { width:5px; height:5px; background:rgba(255,150,150,0.2); top:55%; left:55%; animation:ctDot 15s ease-in-out infinite alternate; }
+@keyframes ctDot {
+  0%   { transform: translate(0,0) scale(1); opacity:0.6; }
+  50%  { transform: translate(12px,-16px) scale(1.3); opacity:1; }
+  100% { transform: translate(-8px,10px) scale(0.8); opacity:0.4; }
+}
+
+.ct-ring {
+  position: absolute; border-radius: 50%;
+  pointer-events: none; z-index: 1;
+}
+.ct-ring-1 {
+  width: 320px; height: 320px;
+  border: 1px solid rgba(255,180,180,0.12);
+  top: -80px; right: -60px;
+  animation: ctRingSpin 35s linear infinite;
+}
+.ct-ring-2 {
+  width: 200px; height: 200px;
+  border: 1px solid rgba(255,200,120,0.1);
+  top: -20px; right: 0;
+  animation: ctRingSpin 22s linear infinite reverse;
+}
+@keyframes ctRingSpin { from{transform:rotate(0deg);} to{transform:rotate(360deg);} }
+
+.ct-inner {
+  position: relative; z-index: 2;
+  max-width: 1280px; margin: 0 auto;
+}
+
+.ct-header-row {
+  display: flex; align-items: flex-end; justify-content: space-between;
+  gap: 32px; margin-bottom: 44px;
+  opacity: 0; transform: translateY(28px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.ct-header-row.ct-in { opacity:1; transform:translateY(0); }
+
+.ct-eyebrow {
+  display: inline-flex; align-items: center; gap: 10px; margin-bottom: 14px;
+}
+.ct-eyebrow-bar {
+  width: 34px; height: 3px;
+  background: linear-gradient(90deg, #ff6a88, #ffb347);
+  border-radius: 3px; position: relative; overflow: hidden;
+}
+.ct-eyebrow-bar::after {
+  content: ''; position: absolute; inset: 0;
+  background: rgba(255,255,255,0.55);
+  animation: ctBarScan 2.2s ease-in-out infinite;
+}
+@keyframes ctBarScan { 0%{transform:translateX(-100%)} 100%{transform:translateX(220%)} }
+.ct-eyebrow-txt {
+  font-size: 10px; font-weight: 700; letter-spacing: 3.5px;
+  text-transform: uppercase; color: #ffb0c0;
+}
+.ct-h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 44px; font-weight: 600; line-height: 1.1;
+  color: #fff;
+}
+.ct-h2 em {
+  font-style: italic;
+  background: linear-gradient(120deg, #ffb347, #ff6a88);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+}
+.ct-header-sub {
+  max-width: 240px; font-size: 13px; font-weight: 300;
+  color: rgba(255,255,255,0.45); line-height: 1.7;
+  border-left: 2px solid rgba(255,150,150,0.3);
+  padding-left: 16px; flex-shrink: 0;
+}
+
+.ct-grid {
+  display: grid;
+  grid-template-columns: 0.9fr 1.3fr 1fr;
+  gap: 20px;
+  align-items: start;
+}
+
+.ct-info-col {
+  display: flex; flex-direction: column; gap: 12px;
+  opacity: 0; transform: translateX(-36px);
+  transition: opacity 0.85s ease 0.15s, transform 0.85s ease 0.15s;
+}
+.ct-info-col.ct-in { opacity:1; transform:translateX(0); }
+
+.ct-card {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,200,200,0.12);
+  border-radius: 16px; padding: 18px 16px;
+  position: relative; overflow: hidden;
+  transition: transform 0.3s, background 0.3s, border-color 0.3s;
+  backdrop-filter: blur(6px);
+}
+.ct-card::before {
+  content: '';
+  position: absolute; left:0; top:0; bottom:0;
+  width: 3px;
+  background: linear-gradient(180deg, #ff6a88, #ffb347);
+  transform: scaleY(0); transform-origin: top;
+  transition: transform 0.45s cubic-bezier(0.22,1,0.36,1);
+  border-radius: 3px 0 0 3px;
+}
+.ct-card:hover { transform: translateY(-3px); background: rgba(255,255,255,0.09); border-color: rgba(255,150,150,0.22); }
+.ct-card:hover::before { transform: scaleY(1); }
+
+.ct-card-icon {
+  font-size: 18px; margin-bottom: 10px; display: block;
+  transition: transform 0.3s;
+}
+.ct-card:hover .ct-card-icon { transform: rotate(-8deg) scale(1.15); }
+.ct-card-lbl {
+  font-size: 8.5px; font-weight: 700; letter-spacing: 2.5px;
+  text-transform: uppercase; color: #ff9ab0; margin-bottom: 4px;
+}
+.ct-card-val {
+  font-size: 12.5px; color: rgba(255,255,255,0.7);
+  font-weight: 400; line-height: 1.5;
+}
+.ct-card-val strong { color: #fff; font-weight: 600; }
+
+.ct-avail {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(34,200,106,0.1);
+  border: 1px solid rgba(34,200,106,0.25);
+  border-radius: 50px; padding: 7px 14px; margin-top: 2px;
+}
+.ct-avail-dot {
+  width: 7px; height: 7px; border-radius: 50%;
+  background: #22c86a; box-shadow: 0 0 8px rgba(34,200,106,0.7);
+  animation: blink 2s ease-in-out infinite;
+}
+.ct-avail-txt {
+  font-size: 10px; font-weight: 700; letter-spacing: 2px;
+  text-transform: uppercase; color: rgba(255,255,255,0.6);
+}
+
+.ct-socials { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.ct-soc {
+  display: flex; align-items: center; justify-content: center; gap: 6px;
+  padding: 9px 4px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,200,200,0.12);
+  border-radius: 10px; text-decoration: none;
+  font-size: 11px; font-weight: 600; color: rgba(255,255,255,0.55);
+  transition: all 0.3s;
+}
+.ct-soc i { font-size: 13px; }
+.ct-soc:hover {
+  background: rgba(255,106,136,0.15);
+  border-color: rgba(255,106,136,0.35);
+  color: #ff9ab0; transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(255,46,99,0.2);
+}
+
+.ct-map-col {
+  opacity: 0; transform: translateY(36px);
+  transition: opacity 0.85s ease 0.25s, transform 0.85s ease 0.25s;
+}
+.ct-map-col.ct-in { opacity:1; transform:translateY(0); }
+
+.ct-map-box {
+  border-radius: 20px; overflow: hidden;
+  border: 1.5px solid rgba(255,150,150,0.2);
+  box-shadow: 0 10px 50px rgba(0,0,0,0.35), 0 0 0 1px rgba(255,100,100,0.08);
+  position: relative;
+}
+.ct-map-bar {
+  position: absolute; top:0; left:0; right:0; z-index:10;
+  background: linear-gradient(180deg, rgba(90,18,48,0.92) 0%, transparent 100%);
+  padding: 12px 16px 20px;
+  display: flex; align-items: center; gap: 8px;
+}
+.ct-map-live { display: flex; align-items: center; gap: 6px; }
+.ct-map-dot {
+  width: 7px; height: 7px; border-radius: 50%;
+  background: #22c86a; box-shadow: 0 0 8px rgba(34,200,106,0.7);
+  animation: blink 1.5s ease-in-out infinite;
+}
+.ct-map-live-lbl {
+  font-size: 9px; font-weight: 700; letter-spacing: 2px;
+  text-transform: uppercase; color: rgba(255,255,255,0.55);
+}
+.ct-map-city {
+  margin-left: auto;
+  font-size: 11px; font-weight: 600; color: #ffb0c0; letter-spacing: 0.5px;
+}
+.ct-map-box iframe {
+  display: block; width: 100%; height: 300px; border: none;
+  filter: saturate(0.7) contrast(1.05) sepia(0.15) hue-rotate(-10deg);
+}
+.ct-map-box::after {
+  content: ''; position: absolute; bottom:0; left:0; right:0;
+  height: 50px;
+  background: linear-gradient(0deg, rgba(90,18,48,0.4) 0%, transparent 100%);
+  pointer-events: none;
+}
+
+.ct-strip {
+  display: grid; grid-template-columns: repeat(4,1fr);
+  gap: 8px; margin-top: 12px;
+}
+.ct-strip-tile {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,200,200,0.1);
+  border-radius: 12px; padding: 10px 6px;
+  text-align: center;
+  transition: background 0.3s, transform 0.3s;
+}
+.ct-strip-tile:hover { background: rgba(255,106,136,0.12); transform: translateY(-2px); }
+.ct-strip-emoji { font-size: 16px; margin-bottom: 4px; }
+.ct-strip-lbl { font-size: 7.5px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: #ff9ab0; margin-bottom: 2px; }
+.ct-strip-val { font-size: 11px; font-weight: 600; color: rgba(255,255,255,0.75); }
+
+.ct-form-col {
+  opacity: 0; transform: translateX(36px);
+  transition: opacity 0.85s ease 0.35s, transform 0.85s ease 0.35s;
+}
+.ct-form-col.ct-in { opacity:1; transform:translateX(0); }
+
+.ct-form-box {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,200,200,0.12);
+  border-radius: 20px; padding: 28px 24px;
+  backdrop-filter: blur(8px);
+  position: relative; overflow: hidden;
+}
+.ct-form-box::before {
+  content: '';
+  position: absolute; top:0; right:0;
+  width: 120px; height: 120px;
+  background: radial-gradient(circle at top right, rgba(255,106,136,0.12), transparent 70%);
+  pointer-events: none;
+}
+.ct-form-ttl {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 24px; font-weight: 600; color: #fff; margin-bottom: 4px;
+}
+.ct-form-ttl span { font-style: italic; color: #ffb0c0; }
+.ct-form-hint {
+  font-size: 11.5px; color: rgba(255,255,255,0.35);
+  margin-bottom: 20px; font-weight: 300;
+}
+
+.ct-f { margin-bottom: 11px; }
+.ct-f label {
+  display: block; font-size: 8.5px; font-weight: 700;
+  letter-spacing: 2px; text-transform: uppercase;
+  color: #ff9ab0; margin-bottom: 5px;
+}
+.ct-f input, .ct-f textarea, .ct-f select {
+  width: 100%;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,200,200,0.14);
+  border-radius: 9px; padding: 10px 13px;
+  color: #fff;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px; outline: none; appearance: none;
+  transition: border-color 0.3s, background 0.3s, box-shadow 0.3s;
+}
+.ct-f input:focus, .ct-f textarea:focus, .ct-f select:focus {
+  border-color: rgba(255,106,136,0.5);
+  background: rgba(255,106,136,0.07);
+  box-shadow: 0 0 0 3px rgba(255,46,99,0.1);
+}
+.ct-f input::placeholder, .ct-f textarea::placeholder { color: rgba(255,255,255,0.22); }
+.ct-f select option { background: #5a1230; color: #fff; }
+.ct-f textarea { resize: none; height: 72px; }
+.ct-f-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+
+.ct-btn {
+  width: 100%; padding: 12px;
+  background: linear-gradient(45deg, #c8003a, #ff6a88);
+  border: none; border-radius: 9px;
+  color: #fff; font-family: 'Poppins', sans-serif;
+  font-size: 12.5px; font-weight: 700;
+  letter-spacing: 1px; text-transform: uppercase;
+  cursor: pointer; position: relative; overflow: hidden;
+  transition: transform 0.3s, box-shadow 0.3s;
+  margin-top: 2px;
+}
+.ct-btn::after {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(45deg, #ff6a88, #ffb347);
+  opacity: 0; transition: opacity 0.4s;
+}
+.ct-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 28px rgba(200,0,58,0.45); }
+.ct-btn:hover::after { opacity: 1; }
+.ct-btn-inner { position: relative; z-index: 1; display: flex; align-items: center; justify-content: center; gap: 8px; }
+.ct-btn.ct-sent { background: linear-gradient(45deg, #1a7a4a, #22c86a); pointer-events: none; }
+
+.ct-ok {
+  display: none; margin-top: 10px;
+  background: rgba(34,200,106,0.08);
+  border: 1px solid rgba(34,200,106,0.22);
+  border-radius: 9px; padding: 11px 14px;
+  font-size: 12px; color: #5ae89a;
+  font-weight: 500; text-align: center;
+}
+.ct-ok.show { display: block; animation: ctFadeUp 0.45s ease; }
+@keyframes ctFadeUp { from{opacity:0;transform:translateY(8px);} to{opacity:1;transform:translateY(0);} }
+
+@media(max-width: 1100px) {
+  .ct-grid { grid-template-columns: 1fr 1fr; }
+  .ct-form-col { grid-column: 1 / -1; }
+  .contact-section { padding: 60px 40px 65px; }
+  .ct-h2 { font-size: 36px; }
+}
+@media(max-width: 680px) {
+  .ct-grid { grid-template-columns: 1fr; }
+  .contact-section { padding: 50px 22px 55px; }
+  .ct-header-row { flex-direction: column; align-items: flex-start; }
+  .ct-header-sub { border-left: none; border-top: 1px solid rgba(255,150,150,0.2); padding-left: 0; padding-top: 12px; max-width: 100%; }
+  .ct-h2 { font-size: 32px; }
+  .ct-strip { grid-template-columns: repeat(2,1fr); }
+}
+
+.service-icon-modern {
+  width: 80px;
+  height: 80px;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.service-icon-modern img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+</style>
+</head>
+<body>
+
+<!-- NAVBAR (unchanged) -->
+<header class="navbar">
+  <div class="nav-container">
+    <div class="logo">
+      <img src="Img/Screenshot_2026-03-24_101847-removebg-preview.png" alt="Venture+">
+      <div class="logo-text">
+        <span class="brand">Venture+</span>
+        <small class="tagline">Services</small>
+      </div>
+    </div>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Services</a></li>
+        <li><a href="#">Mandoob</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO (UNTOUCHED) -->
+<section class="hero">
+  <canvas id="bg"></canvas>
+  <div class="hero-content">
+    <p class="hero-label">Welcome to Venture Plus Consultancy Services</p>
+    <h1>
+      Your Partner in <br>
+      Navigating <span class="highlight">UAE's Dynamic</span><br>
+      Business Landscape
+    </h1>
+    <p>Empowering businesses with expert consultancy, strategic solutions, and end-to-end operational support across the UAE.</p>
+    <div class="hero-btns">
+      <button class="btn">Book A Demo</button>
+      <button class="btn-outline">Explore Services</button>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="right-big-word" id="bigWord">Business<br>Setup</div>
+    <div class="right-divider"></div>
+    <div class="right-service-list" id="serviceList">
+      <div class="service-item active"><span class="s-dot"></span>Business Setup</div>
+      <div class="service-item"><span class="s-dot"></span>PRO Services</div>
+      <div class="service-item"><span class="s-dot"></span>Visa Assistance</div>
+      <div class="service-item"><span class="s-dot"></span>Operation Support</div>
+      <div class="service-item"><span class="s-dot"></span>Venture Connect</div>
+    </div>
+    <div class="right-counter" id="counter"><span>01</span> / 05</div>
+  </div>
+</section>
+
+<!-- WAVE DIVIDER 1: hero → cream -->
+<div class="wave-divider">
+  <svg viewBox="0 0 1440 100" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0,0 L0,60 Q180,110 360,70 Q540,30 720,75 Q900,120 1080,65 Q1260,10 1440,60 L1440,0 Z" fill="#0a0005"/>
+    <path d="M0,100 L0,60 Q180,110 360,70 Q540,30 720,75 Q900,120 1080,65 Q1260,10 1440,60 L1440,100 Z" fill="#faf6f0"/>
+  </svg>
+</div>
+
+<!-- OFFERING SECTION (untouched) -->
+<section class="offering" id="offering">
+  <div class="of-label-row" id="ofLabel">
+    <div class="of-pill">
+      <span class="of-pill-dot"></span>
+      <span>Our Offering</span>
+    </div>
+  </div>
+  <div class="of-heading-wrap" id="ofHeading">
+    <h2 class="of-heading">
+      Smart Solutions for <em>Transparent,</em><br>
+      Efficient &amp; Compliant<br>
+      Business Operations
+    </h2>
+    <p class="of-subtext">
+      Five pillars that make Venture+ the UAE's most trusted business consultancy partner.
+    </p>
+  </div>
+  <div class="bento" id="ofGrid">
+    <div class="of-card b-hero" data-target="100">
+      <div class="b-hero-inner">
+        <div class="b-icon"><svg viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/><line x1="12" y1="2" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="22"/></svg></div>
+        <div class="b-title">End to End<br>Transparency</div>
+        <p class="b-desc">Full visibility into every process, document, and decision — no hidden steps, ever.</p>
+        <div class="b-stat-row"><span class="b-count">0</span><span class="b-count-sfx">% Transparent</span></div>
+        <div class="b-bar"><div class="b-bar-fill" style="--fill:100%"></div></div>
+      </div>
+      <span class="b-bg-num">01</span>
+    </div>
+    <div class="of-card b-sm-1" data-target="3"><div class="b-sm-inner"><div class="b-sm-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div><div class="b-sm-title">More in Less Time</div><p class="b-sm-desc">Streamlined workflows deliver results at record speed.</p><div class="b-sm-stat"><span class="b-sm-count">0</span><span class="b-sm-sfx">× Faster</span></div></div></div>
+    <div class="of-card b-sm-2" data-target="0"><div class="b-sm-inner"><div class="b-sm-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="23" y1="11" x2="17" y2="11"/></svg></div><div class="b-sm-title">No Dependency</div><p class="b-sm-desc">Total operational autonomy — you own your business.</p><div class="b-sm-stat"><span class="b-sm-count">0</span><span class="b-sm-sfx">% Dependency</span></div></div></div>
+    <div class="of-card b-sm-3" data-target="100"><div class="b-sm-inner"><div class="b-sm-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg></div><div class="b-sm-title">Legally Compliant</div><p class="b-sm-desc">Every step aligns with UAE regulations — zero legal risk.</p><div class="b-sm-stat"><span class="b-sm-count">0</span><span class="b-sm-sfx">% Compliant</span></div></div></div>
+    <div class="of-card b-sm-4" data-target="40"><div class="b-sm-inner"><div class="b-sm-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div><div class="b-sm-title">Cost Saving Up to 40%</div><p class="b-sm-desc">Smart allocation cuts your operational costs significantly.</p><div class="b-sm-stat"><span class="b-sm-count">0</span><span class="b-sm-sfx">% Saved</span></div></div></div>
+  </div>
+</section>
+
+<!-- WAVE DIVIDER 2: cream → maroon -->
+<div class="wave-divider-muted">
+  <svg viewBox="0 0 1440 100" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+
+    <!-- ✅ DEFINE GRADIENT -->
+    <defs>
+      <linearGradient id="waveGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#3a0a18"/>
+        <stop offset="55%" stop-color="#5c1028"/>
+        <stop offset="100%" stop-color="#4a0c20"/>
+      </linearGradient>
+    </defs>
+
+    <!-- TOP PART -->
+    <path d="M0,0 L0,60 Q180,110 360,70 Q540,30 720,75 Q900,120 1080,65 Q1260,10 1440,60 L1440,0 Z" fill="#faf6f0"/>
+
+    <!-- 🔥 APPLY GRADIENT HERE -->
+    <path d="M0,100 L0,60 Q180,110 360,70 Q540,30 720,75 Q900,120 1080,65 Q1260,10 1440,60 L1440,100 Z" fill="url(#waveGradient)"/>
+
+  </svg>
+</div>
+
+<!-- CAROUSEL SERVICES (unchanged except visibility fix) -->
+<section class="services-showcase">
+  <div class="floating-glow"></div>
+  <div class="showcase-container">
+    <div class="showcase-header" id="showcaseHeader">
+      <div class="what-pill">
+        <span class="pill-glow"></span>
+        <span>WHAT WE OFFER</span>
+      </div>
+      <h2>Comprehensive Business Consultancy <span>For Efficiency</span> & Compliance In The UAE</h2>
+      <div class="showcase-sub">Comprehensive Services Backed by Years of UAE Market Expertise</div>
+    </div>
+    <div class="carousel-outer">
+      <button class="carousel-btn carousel-prev" id="carPrev" aria-label="Previous"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"></polyline></svg></button>
+      <div class="service-flow"><div class="carousel-track" id="carTrack">
+        <div class="service-unit" data-idx="0"><div class="service-card-img"><span class="service-card-badge">Digital</span><img src="Img/88088febac768b5a2ec08cb4267dabc3.jpg" alt="Digital PRO"></div><div class="service-content"><div class="service-title">Digital PRO</div><p class="service-desc">Digital Pro is a customized model with good business consulting solutions that handles critical business elements such as PR, HR consultancy services, and employee management. By leveraging advanced digital tools, we improve online visibility and streamline human resource management.</p><div class="service-meta">⚡ digital ecosystem</div><a href="#" class="service-learn">Learn More</a></div></div>
+        <div class="service-unit" data-idx="1"><div class="service-card-img"><span class="service-card-badge">Compliance</span><img src="Img/431f115795375c11c7946b18e84303ce.jpg" alt="ELDA"></div><div class="service-content"><div class="service-title">Entity Legal Document Audit (ELDA)</div><p class="service-desc">ELDA focuses on auditing and managing legal documents in the UAE. With full UAE compliance, ELDA helps businesses mitigate legal risks and maintain accurate, up-to-date documentation at all times.</p><div class="service-meta">📄 audit & compliance</div><a href="#" class="service-learn">Learn More</a></div></div>
+        <div class="service-unit" data-idx="2"><div class="service-card-img"><span class="service-card-badge">Connect</span><img src="Img/340fb8c82dfb93f492781ece503da7aa.jpg" alt="Venture Connect"></div><div class="service-content"><div class="service-title">Venture Connect</div><p class="service-desc">With Venture Connect, our consultants work round the clock to provide you prompt replies and solutions tailored to your specific business needs — anytime, anywhere.</p><div class="service-meta">🔗 24/7 expert access</div><a href="#" class="service-learn">Learn More</a></div></div>
+        <div class="service-unit" data-idx="3"><div class="service-card-img"><span class="service-card-badge">PRO</span><img src="Img/71207e36fa1d2b7e64fc6dd616fed488.jpg" alt="PRO Services"></div><div class="service-content"><div class="service-title">PRO Services</div><p class="service-desc">We offer cost-efficient PRO services in UAE to large corporations and SMEs. Our engagement with local bodies and expertise will provide you with seamless support for visas, permits, and other essential processes.</p><div class="service-meta">🏛️ government liaison</div><a href="#" class="service-learn">Learn More</a></div></div>
+        <div class="service-unit" data-idx="4"><div class="service-card-img"><span class="service-card-badge">Technology</span><img src="Img/38a23c3d76185a38984f2ff6608e2a25.jpg" alt="Managed IT"></div><div class="service-content"><div class="service-title">Managed IT Services UAE</div><p class="service-desc">We deal from scratch with managed IT services in UAE — from web development and IT infrastructure support services to mobile app development with end-to-end IT infrastructure solutions including integrated ERP consulting.</p><div class="service-meta">💻 technology solutions</div><a href="#" class="service-learn">Learn More</a></div></div>
+        <div class="service-unit" data-idx="5"><div class="service-card-img"><span class="service-card-badge">Licensing</span><img src="Img/520fc017dabdb4f19f1b32ae9e3c0199.jpg" alt="Commercial Licensing"></div><div class="service-content"><div class="service-title">Commercial Licensing</div><p class="service-desc">We assist in optimally dealing with your business, guiding you through the process of online company registration in UAE, licensing, and maintaining good operational standards throughout.</p><div class="service-meta">📋 licensing & registration</div><a href="#" class="service-learn">Learn More</a></div></div>
+        <div class="service-unit" data-idx="6"><div class="service-card-img"><span class="service-card-badge">Finance</span><img src="Img/c7310410e1651b00d9baf35bbdf19617.jpg" alt="Bookkeeping & VAT"></div><div class="service-content"><div class="service-title">Bookkeeping, Accounting & VAT Consultancy</div><p class="service-desc">We are experts in VAT consultancy, accounting and bookkeeping services in UAE. We provide support in tax filing, recruitment of accountants, monitoring of accounts, and both internal and external auditing.</p><div class="service-meta">💰 finance & tax</div><a href="#" class="service-learn">Learn More</a></div></div>
+        <div class="service-unit" data-idx="7"><div class="service-card-img"><span class="service-card-badge">Support</span><img src="Img/b14cc161cce4383a47cfaebca0af04cb.jpg" alt="Venture+ ASB"></div><div class="service-content"><div class="service-title">Venture+ ASB</div><p class="service-desc">Admin Support Board Services — ASB acts as a support service panel between customer and service provider. The ASB service is a combination of admin support, coordination, and workflow management solutions tailored for UAE businesses.</p><div class="service-meta">🤝 admin support board</div><a href="#" class="service-learn">Learn More</a></div></div>
+      </div></div>
+      <button class="carousel-btn carousel-next" id="carNext" aria-label="Next"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"></polyline></svg></button>
+    </div>
+    <div class="carousel-controls" id="carControls">
+      <button class="carousel-pause" id="carPause" aria-label="Pause/Play"><svg id="pauseIcon" viewBox="0 0 24 24"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg></button>
+      <div class="carousel-dots" id="carDots"></div>
+    </div>
+    <div class="view-all-wrapper" id="viewAllWrap"><a href="#" class="view-link">View All Services<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a></div>
+  </div>
+</section>
+
+<!-- WAVE DIVIDER 3: maroon → warm white (into about section) -->
+<div class="wave-divider-about">
+  <svg viewBox="0 0 1440 100" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+
+    <!-- ✅ GRADIENT DEFINITION -->
+    <defs>
+      <linearGradient id="waveGradient2" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#3a0a18"/>
+        <stop offset="55%" stop-color="#5c1028"/>
+        <stop offset="100%" stop-color="#4a0c20"/>
+      </linearGradient>
+    </defs>
+
+    <!-- 🔥 APPLY GRADIENT (TOP PART) -->
+    <path d="M0,0 L0,55 Q200,105 400,65 Q600,25 720,70 Q860,115 1080,60 Q1280,10 1440,55 L1440,0 Z" fill="url(#waveGradient2)"/>
+
+    <!-- KEEP THIS (BOTTOM WHITE) -->
+    <path d="M0,100 L0,55 Q200,105 400,65 Q600,25 720,70 Q860,115 1080,60 Q1280,10 1440,55 L1440,100 Z" fill="#fdf9f5"/>
+
+  </svg>
+</div>
+
+<!-- ABOUT SECTION (unchanged) -->
+<section class="about-section" id="aboutSection">
+  <div class="about-orb about-orb-1"></div>
+  <div class="about-orb about-orb-2"></div>
+  <div class="about-orb about-orb-3"></div>
+  <div class="about-wrap">
+  <div class="about-top-label" id="aboutLabel">
+  <div class="of-pill">
+    <span class="of-pill-dot"></span>
+    <span>About Venture+ Services</span>
+  </div>
+</div>
+    <div class="about-grid">
+      <div class="about-img-panel" id="aboutImgPanel">
+        <img src="Img/4feb88c30eefab611c6abf16e3af49ca.jpg" onerror="this.style.background='linear-gradient(135deg,#ffdce6,#ffc0d0)';this.removeAttribute('src');" alt="Venture+ Team">
+        <div class="about-img-badge"><span class="about-img-badge-dot"></span>QATAR Trusted Partner</div>
+        <div class="about-float-card about-float-card-1"><div class="afc-live"><span class="afc-live-dot"></span><span class="afc-live-text">Active</span></div><div class="afc-num" data-target="500" data-suffix="+">0+</div><div class="afc-label">Clients Served</div></div>
+        <div class="about-float-card about-float-card-2"><div class="afc-num" data-target="10" data-suffix="+">0+</div><div class="afc-label">Years in UAE</div></div>
+      </div>
+      <div class="about-text-panel" id="aboutTextPanel">
+        <h2 class="about-heading"><span class="ah-line"><span>Empowering Your Business</span></span><span class="ah-line"><span>with Smart Consultancy</span></span><span class="ah-line"><span>Solutions for Sustainable Growth</span></span></h2>
+        <div class="about-progress-bar"><div class="about-progress-fill"></div></div>
+        <p class="about-body-text">Venture UAE specializes in providing orientation to organizations to achieve their full potential through our business consultancy services. Our expertise in delivering the best solutions, customized strategies, and ideas of innovation to streamline operations and for smoother efficiency of the company.</p>
+        <div class="about-mini-stats"><div class="amstat"><span class="amstat-num" data-target="500" data-suffix="+">0+</span><span class="amstat-label">Clients Served</span></div><div class="amstat"><span class="amstat-num" data-target="10" data-suffix="+">0+</span><span class="amstat-label">Years in UAE</span></div><div class="amstat"><span class="amstat-num" data-target="98" data-suffix="%">0%</span><span class="amstat-label">Satisfaction</span></div></div>
+        <div class="about-cta-row">
+          <a href="#" class="about-btn">Explore More<svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+          <div class="about-dir-wrap">
+            <img src="Img/PdfImage.png" onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'50\' height=\'50\' viewBox=\'0 0 100 100\'%3E%3Ccircle fill=\'%23ff2e63\' cx=\'50\' cy=\'50\' r=\'50\'/%3E%3Ctext x=\'50\' y=\'70\' font-size=\'42\' text-anchor=\'middle\' fill=\'white\' font-weight=\'bold\'%3EKM%3C/text%3E%3C/svg%3E';" alt="Khalid Mohamed" class="about-dir-avatar">
+            <div><div class="about-dir-name">Khalid Mohamed Helal Feraih Al Qubaisi</div><div class="about-dir-role">Managing Director</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WAVE DIVIDER: warm white → maroon (into news section) -->
+<div style="display:block;width:100%;height:100px;background:#fdf9f5;position:relative;z-index:5;margin-bottom:-2px;">
+  <svg viewBox="0 0 1440 100" preserveAspectRatio="none" style="display:block;width:100%;height:100%;">
+
+    <defs>
+      <!-- LIGHT GRADIENT (top) -->
+      <linearGradient id="waveGradient3" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#fdf9f5"/>
+        <stop offset="50%" stop-color="#f8f2ec"/>
+        <stop offset="100%" stop-color="#fdf4f7"/>
+      </linearGradient>
+
+      <!-- ✅ DARK GRADIENT (bottom) -->
+      <linearGradient id="waveGradientDark" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#3a0a18"/>
+        <stop offset="55%" stop-color="#5c1028"/>
+        <stop offset="100%" stop-color="#4a0c20"/>
+      </linearGradient>
+    </defs>
+
+    <!-- TOP WAVE -->
+    <path d="M0,0 L0,60 Q180,110 360,70 Q540,30 720,75 Q900,120 1080,65 Q1260,10 1440,60 L1440,0 Z"
+          fill="url(#waveGradient3)"/>
+
+    <!-- ✅ BOTTOM WAVE (dark gradient) -->
+    <path d="M0,100 L0,60 Q180,110 360,70 Q540,30 720,75 Q900,120 1080,65 Q1260,10 1440,60 L1440,100 Z"
+          fill="url(#waveGradientDark)"/>
+
+  </svg>
+</div>
+<!-- NEWS SECTION -->
+<section class="news-section" id="newsSection">
+  <div class="news-noise"></div>
+
+  <!-- GOLD TICKER STRIP -->
+  <div class="news-ticker-wrap">
+    <div class="news-ticker-track">
+      <span class="news-ticker-item"><span class="news-ticker-dot"></span>UAE Corporate Tax 2026 — Compliance Guide</span>
+      <span class="news-ticker-item"><span class="news-ticker-dot"></span>Qatar Vision 2030 — New FDI Opportunities</span>
+      <span class="news-ticker-item"><span class="news-ticker-dot"></span>Freezone Licensing Update — Impact on SMEs</span>
+      <span class="news-ticker-item"><span class="news-ticker-dot"></span>UAE Golden Visa — Expanded Eligibility Criteria</span>
+      <span class="news-ticker-item"><span class="news-ticker-dot"></span>Business Registration — Record Time Approvals</span>
+      <span class="news-ticker-item"><span class="news-ticker-dot"></span>GCC Market Outlook 2026 — Growth Sectors</span>
+      <!-- duplicate for seamless loop -->
+      <span class="news-ticker-item"><span class="news-ticker-dot"></span>UAE Corporate Tax 2026 — Compliance Guide</span>
+      <span class="news-ticker-item"><span class="news-ticker-dot"></span>Qatar Vision 2030 — New FDI Opportunities</span>
+      <span class="news-ticker-item"><span class="news-ticker-dot"></span>Freezone Licensing Update — Impact on SMEs</span>
+      <span class="news-ticker-item"><span class="news-ticker-dot"></span>UAE Golden Visa — Expanded Eligibility Criteria</span>
+      <span class="news-ticker-item"><span class="news-ticker-dot"></span>Business Registration — Record Time Approvals</span>
+      <span class="news-ticker-item"><span class="news-ticker-dot"></span>GCC Market Outlook 2026 — Growth Sectors</span>
+    </div>
+  </div>
+
+  <div class="news-container">
+
+    <!-- HEADER ROW -->
+    <div class="news-header-row" id="nwsHeader">
+      <div class="news-header-left">
+        <div class="news-eyebrow">
+          <div class="news-eyebrow-bar"></div>
+          <span class="news-eyebrow-text">Latest Insights</span>
+        </div>
+        <h2 class="news-big-title">News &amp; <em>Insights</em><br>from the Field.</h2>
+      </div>
+      <div class="news-header-right">
+        <div class="news-count-badge">
+          <span class="news-count-num">05</span>
+          <span class="news-count-label">Stories This Month</span>
+        </div>
+        <a href="#" class="news-view-all">View All Stories <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+      </div>
+    </div>
+
+    <!-- MASONRY GRID -->
+    <div class="nws-masonry">
+
+      <!-- BIG CARD -->
+      <div class="nws-card nws-card-big">
+        <div class="nws-img">
+          <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=900&q=85" alt="UAE Business" loading="lazy">
+          <span class="nws-tag">Regulatory</span>
+          <div class="nws-live-badge"><span class="nws-live-dot"></span><span class="nws-live-text">Latest</span></div>
+          <span class="nws-number">01</span>
+        </div>
+        <div class="nws-body">
+          <div class="nws-meta">
+            <span class="nws-date">March 2026</span>
+            <span class="nws-sep"></span>
+            <span class="nws-readtime">5 min read</span>
+          </div>
+          <h3 class="nws-title">QatarEnergy Force Majeure: What Businesses Must Do Now</h3>
+          <p class="nws-excerpt">QatarEnergy declared force majeure on long-term LNG supply contracts for customers in Italy, Belgium, South Korea, and China following production disruptions Al Jazeera, creating urgent compliance and contract review needs for businesses. Here's what you need to know and how Venture+ can help you navigate the implications.</p>
+          <a href="#" class="nws-link">Read Full Story</a>
+        </div>
+      </div>
+
+      <!-- SMALL CARD 1 -->
+      <div class="nws-card nws-card-sm">
+        <div class="nws-img">
+          <img src="https://images.unsplash.com/photo-1560179707-f14e90ef3623?w=600&q=80" alt="" loading="lazy">
+          <span class="nws-tag">Qatar</span>
+        </div>
+        <div class="nws-body">
+          <div class="nws-meta">
+            <span class="nws-date">Feb 2026</span>
+            <span class="nws-sep"></span>
+            <span class="nws-readtime">4 min</span>
+          </div>
+          <h3 class="nws-title">Qatar Vision 2030: New Doors for Foreign Businesses</h3>
+          <a href="#" class="nws-link">Read More</a>
+        </div>
+      </div>
+
+      <!-- SMALL CARD 2 -->
+      <div class="nws-card nws-card-sm">
+        <div class="nws-img">
+          <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=600&q=80" alt="" loading="lazy">
+          <span class="nws-tag">Compliance</span>
+        </div>
+        <div class="nws-body">
+          <div class="nws-meta">
+            <span class="nws-date">Jan 2026</span>
+            <span class="nws-sep"></span>
+            <span class="nws-readtime">3 min</span>
+          </div>
+          <h3 class="nws-title">New Freezone Regulations: Impact on UAE SMEs</h3>
+          <a href="#" class="nws-link">Read More</a>
+        </div>
+      </div>
+
+      <!-- WIDE CARD (bottom, spans 2 cols) -->
+      <div class="nws-card nws-card-wide">
+        <div class="nws-img">
+          <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=700&q=80" alt="" loading="lazy">
+          <span class="nws-tag">Golden Visa</span>
+        </div>
+        <div class="nws-body">
+          <div class="nws-meta">
+            <span class="nws-date">Dec 2025</span>
+            <span class="nws-sep"></span>
+            <span class="nws-readtime">6 min read</span>
+          </div>
+          <h3 class="nws-title">UAE Golden Visa 2026: Expanded Categories &amp; What It Means for Investors</h3>
+          <p class="nws-excerpt">The UAE Government has broadened Golden Visa eligibility to include a wider range of professionals and investors — here's what changed and how Venture+ can help you qualify.</p>
+          <a href="#" class="nws-link">Read Full Story</a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- BOTTOM SCROLLING MARQUEE -->
+    <div class="nws-bottom-ticker">
+      <div class="nws-bottom-track">
+        <span class="nws-bottom-item"><strong>UAE</strong> Business Setup <span class="nws-bottom-star">✦</span></span>
+        <span class="nws-bottom-item"><strong>Qatar</strong> Market Entry <span class="nws-bottom-star">✦</span></span>
+        <span class="nws-bottom-item"><strong>PRO</strong> Services &amp; Visa <span class="nws-bottom-star">✦</span></span>
+        <span class="nws-bottom-item"><strong>Golden Visa</strong> Advisory <span class="nws-bottom-star">✦</span></span>
+        <span class="nws-bottom-item"><strong>Corporate Tax</strong> Planning <span class="nws-bottom-star">✦</span></span>
+        <span class="nws-bottom-item"><strong>Freezone</strong> Licensing <span class="nws-bottom-star">✦</span></span>
+        <span class="nws-bottom-item"><strong>GCC</strong> Expansion <span class="nws-bottom-star">✦</span></span>
+        <!-- duplicate -->
+        <span class="nws-bottom-item"><strong>UAE</strong> Business Setup <span class="nws-bottom-star">✦</span></span>
+        <span class="nws-bottom-item"><strong>Qatar</strong> Market Entry <span class="nws-bottom-star">✦</span></span>
+        <span class="nws-bottom-item"><strong>PRO</strong> Services &amp; Visa <span class="nws-bottom-star">✦</span></span>
+        <span class="nws-bottom-item"><strong>Golden Visa</strong> Advisory <span class="nws-bottom-star">✦</span></span>
+        <span class="nws-bottom-item"><strong>Corporate Tax</strong> Planning <span class="nws-bottom-star">✦</span></span>
+        <span class="nws-bottom-item"><strong>Freezone</strong> Licensing <span class="nws-bottom-star">✦</span></span>
+        <span class="nws-bottom-item"><strong>GCC</strong> Expansion <span class="nws-bottom-star">✦</span></span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- WAVE DIVIDER: maroon → cream (into FAQ section) -->
+<div style="display:block;width:100%;height:100px;position:relative;z-index:5;margin-bottom:-2px;">
+  <svg viewBox="0 0 1440 100" preserveAspectRatio="none" style="display:block;width:100%;height:100%;">
+
+    <defs>
+      <!-- DARK WAVE -->
+      <linearGradient id="waveGradient4" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#3a0a18"/>
+        <stop offset="55%" stop-color="#5c1028"/>
+        <stop offset="100%" stop-color="#4a0c20"/>
+      </linearGradient>
+
+      <!-- ✅ NEW LIGHT GRADIENT -->
+      <linearGradient id="softWaveGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#faf6f0"/>
+        <stop offset="50%" stop-color="#f0e8de"/>
+        <stop offset="100%" stop-color="#f5ede8"/>
+      </linearGradient>
+    </defs>
+
+    <!-- TOP DARK WAVE -->
+    <path d="M0,0 L0,60 Q180,110 360,70 Q540,30 720,75 Q900,120 1080,65 Q1260,10 1440,60 L1440,0 Z"
+          fill="url(#waveGradient4)"/>
+
+    <!-- ✅ BOTTOM WAVE WITH YOUR GRADIENT -->
+    <path d="M0,100 L0,60 Q180,110 360,70 Q540,30 720,75 Q900,120 1080,65 Q1260,10 1440,60 L1440,100 Z"
+          fill="url(#softWaveGradient)"/>
+
+  </svg>
+</div>
+<!-- FAQ SECTION (modern + animated + images) -->
+<section class="faq-section" id="faqSection">
+  <div class="faq-blob faq-blob-1"></div>
+  <div class="faq-blob faq-blob-2"></div>
+
+  <!-- HERO HEADER -->
+  <div class="faq-hero">
+    <div class="faq-hero-left" id="faqHeroLeft">
+      <div class="faq-eyebrow">
+        <div class="faq-eyebrow-line"></div>
+        <span class="faq-eyebrow-text">Frequently Asked Questions</span>
+      </div>
+      <h2 class="faq-big-title">
+        Got <span class="fbt-italic">Questions?..</span><br>We've Got Answers.
+      </h2>
+    </div>
+    <div class="faq-hero-right" id="faqHeroRight">
+      <div class="faq-stat-card">
+        <span class="faq-stat-num">4</span>
+        <span class="faq-stat-label">Key Topics</span>
+      </div>
+      <div class="faq-stat-card">
+        <span class="faq-stat-num">100%</span>
+        <span class="faq-stat-label">Expert Answers</span>
+      </div>
+      <div class="faq-stat-card">
+        <span class="faq-stat-num">UAE</span>
+        <span class="faq-stat-label">Focused</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- MAIN GRID: IMAGE LEFT + CONTENT RIGHT -->
+  <div class="faq-main-grid">
+
+  <!-- LEFT: Image Stack -->
+  <div class="faq-img-stack" id="faqImgStack">
+    <!-- Primary image -->
+    <div class="faq-img-primary">
+      <img
+        src="Img/640d32fde726e38dcc0bea0a74050e85.jpg"
+        alt=""
+        loading="lazy"
+        id="faqMainImg"
+      >
+    </div>
+
+    <!-- Floating mini image -->
+    <div class="faq-img-mini">
+      <img src="Img/d6c992da16d6df9db8a925086f62a009.jpg" alt="" loading="lazy">
+    </div>
+
+    <!-- Floating badge -->
+    <div class="faq-img-badge">
+      <div class="faq-badge-icon">
+        <svg viewBox="0 0 24 24">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          <polyline points="9 12 11 14 15 10"/>
+        </svg>
+      </div>
+      <div>
+        <div class="faq-badge-text-big">500+</div>
+        <div class="faq-badge-text-sm">Businesses Set Up</div>
+      </div>
+    </div>
+      <!-- Image dot indicators -->
+      <div class="faq-img-dots" id="faqImgDots">
+        <div class="faq-img-dot active" onclick="switchFaqImg(0)"></div>
+        <div class="faq-img-dot" onclick="switchFaqImg(1)"></div>
+        <div class="faq-img-dot" onclick="switchFaqImg(2)"></div>
+        <div class="faq-img-dot" onclick="switchFaqImg(3)"></div>
+      </div>
+    </div>
+
+    <!-- RIGHT: Tabs + Panels -->
+    <div class="faq-right-col">
+      <!-- Tabs -->
+      <div class="faq-tabs" id="faqTabs">
+        <div class="faq-tab active" onclick="switchFaq(0)" id="ftab0">
+          <div class="faq-tab-icon-wrap">
+            <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          </div>
+          <div class="faq-tab-info">
+            <span class="faq-tab-num">01</span>
+            <span class="faq-tab-q">How do I start a business in the UAE?</span>
+          </div>
+          <div class="faq-tab-arrow"><svg viewBox="0 0 24 24" width="14"><polyline points="9 18 15 12 9 6"/></svg></div>
+        </div>
+        <div class="faq-tab" onclick="switchFaq(1)" id="ftab1">
+          <div class="faq-tab-icon-wrap">
+            <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg>
+          </div>
+          <div class="faq-tab-info">
+            <span class="faq-tab-num">02</span>
+            <span class="faq-tab-q">What type of company entity is suitable?</span>
+          </div>
+          <div class="faq-tab-arrow"><svg viewBox="0 0 24 24" width="14"><polyline points="9 18 15 12 9 6"/></svg></div>
+        </div>
+        <div class="faq-tab" onclick="switchFaq(2)" id="ftab2">
+          <div class="faq-tab-icon-wrap">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="10" r="3"/><path d="M12 2a8 8 0 0 0-8 8c0 5.4 7.05 11.5 7.35 11.76a1 1 0 0 0 1.3 0C13 21.5 20 15.4 20 10a8 8 0 0 0-8-8z"/></svg>
+          </div>
+          <div class="faq-tab-info">
+            <span class="faq-tab-num">03</span>
+            <span class="faq-tab-q">Which emirate should I set up in?</span>
+          </div>
+          <div class="faq-tab-arrow"><svg viewBox="0 0 24 24" width="14"><polyline points="9 18 15 12 9 6"/></svg></div>
+        </div>
+        <div class="faq-tab" onclick="switchFaq(3)" id="ftab3">
+          <div class="faq-tab-icon-wrap">
+            <svg viewBox="0 0 24 24"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+          </div>
+          <div class="faq-tab-info">
+            <span class="faq-tab-num">04</span>
+            <span class="faq-tab-q">Free Zone vs. Mainland Company?</span>
+          </div>
+          <div class="faq-tab-arrow"><svg viewBox="0 0 24 24" width="14"><polyline points="9 18 15 12 9 6"/></svg></div>
+        </div>
+      </div>
+
+      <!-- Panels -->
+      <div class="faq-panel-wrap" id="faqPanelWrap">
+        <div class="faq-panel active" id="fpanel0">
+          <div class="faq-panel-card">
+            <h3 class="faq-panel-title">How do I start a business in the UAE?</h3>
+            <p class="faq-panel-body">To start a business in the UAE, begin by creating a comprehensive business plan. This will help you understand your company's requirements and guide you in choosing the ideal location (e.g., Freezone or Mainland, Abu Dhabi or Dubai) and the best business structure. Key questions to consider:</p>
+            <ul class="faq-panel-list">
+              <li><span class="faq-li-icon"></span>Will your company trade goods or provide services?</li>
+              <li><span class="faq-li-icon"></span>Is your activity or product regulated by a government authority?</li>
+              <li><span class="faq-li-icon"></span>Who is your target market and where are your clients based?</li>
+              <li><span class="faq-li-icon"></span>Where will you be located?</li>
+              <li><span class="faq-li-icon"></span>Do you wish to deal with government or semi-government organizations?</li>
+              <li><span class="faq-li-icon"></span>How many staff will you need? What is your timeline?</li>
+            </ul>
+            <div class="faq-panel-footer">
+              <div class="faq-progress">
+                <div class="faq-progress-track"><div class="faq-progress-fill" style="width:25%"></div></div>
+                <span class="faq-progress-label">1 / 4</span>
+              </div>
+              <div class="faq-nav">
+                <button class="faq-nav-btn" onclick="switchFaq(-1)" disabled><svg viewBox="0 0 24 24" width="16"><polyline points="15 18 9 12 15 6"/></svg></button>
+                <button class="faq-nav-btn" onclick="switchFaq(1)"><svg viewBox="0 0 24 24" width="16"><polyline points="9 18 15 12 9 6"/></svg></button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-panel" id="fpanel1">
+          <div class="faq-panel-card">
+            <h3 class="faq-panel-title">What type of company entity is suitable for my business?</h3>
+            <p class="faq-panel-body">Depending on your business activity, you will need one of the following licenses: Professional, Commercial, or Industrial. The type of license will determine the suitable entity, which could be:</p>
+            <ul class="faq-panel-list">
+              <li><span class="faq-li-icon"></span>Limited Liability Company (LLC)</li>
+              <li><span class="faq-li-icon"></span>Foreign / Local Branch</li>
+              <li><span class="faq-li-icon"></span>Sole Establishment</li>
+              <li><span class="faq-li-icon"></span>Civil Partnership</li>
+            </ul>
+            <div class="faq-panel-footer">
+              <div class="faq-progress">
+                <div class="faq-progress-track"><div class="faq-progress-fill" style="width:50%"></div></div>
+                <span class="faq-progress-label">2 / 4</span>
+              </div>
+              <div class="faq-nav">
+                <button class="faq-nav-btn" onclick="switchFaq(0)"><svg viewBox="0 0 24 24" width="16"><polyline points="15 18 9 12 15 6"/></svg></button>
+                <button class="faq-nav-btn" onclick="switchFaq(2)"><svg viewBox="0 0 24 24" width="16"><polyline points="9 18 15 12 9 6"/></svg></button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-panel" id="fpanel2">
+          <div class="faq-panel-card">
+            <h3 class="faq-panel-title">Which emirate should I set up my company in?</h3>
+            <p class="faq-panel-body">The UAE consists of seven emirates: Abu Dhabi, Dubai, Sharjah, Ras Al Khaimah, Fujairah, Ajman, and Umm Al Quwain. To decide the best emirate for your business, consider:</p>
+            <ul class="faq-panel-list">
+              <li><span class="faq-li-icon"></span>Where are your clients based?</li>
+              <li><span class="faq-li-icon"></span>Are you dealing with private or government entities?</li>
+              <li><span class="faq-li-icon"></span>Where do you want to live? What are the rental costs?</li>
+              <li><span class="faq-li-icon"></span>Your activities influence which DED license you need. E.g. ADNOC/SPC approval requires an Abu Dhabi Mainland trade license.</li>
+            </ul>
+            <div class="faq-panel-footer">
+              <div class="faq-progress">
+                <div class="faq-progress-track"><div class="faq-progress-fill" style="width:75%"></div></div>
+                <span class="faq-progress-label">3 / 4</span>
+              </div>
+              <div class="faq-nav">
+                <button class="faq-nav-btn" onclick="switchFaq(1)"><svg viewBox="0 0 24 24" width="16"><polyline points="15 18 9 12 15 6"/></svg></button>
+                <button class="faq-nav-btn" onclick="switchFaq(3)"><svg viewBox="0 0 24 24" width="16"><polyline points="9 18 15 12 9 6"/></svg></button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-panel" id="fpanel3">
+          <div class="faq-panel-card">
+            <h3 class="faq-panel-title">What is the difference between a Free Zone and Mainland Company?</h3>
+            <ul class="faq-panel-list">
+              <li><span class="faq-li-icon"></span><span><strong style="color:#7a1530;">Mainland Company:</strong> Licensed by the Department of Economic Development (DED), can conduct business in the local market and outside the UAE without restrictions.</span></li>
+              <li><span class="faq-li-icon"></span><span><strong style="color:#7a1530;">Free Zone Company:</strong> Incorporated within a designated jurisdiction, can only conduct business within the same Free Zone or outside the UAE. To trade with the UAE mainland, they must use a mainland distributor or agent and pay a 5% import duty on local invoices.</span></li>
+            </ul>
+            <div class="faq-panel-footer">
+              <div class="faq-progress">
+                <div class="faq-progress-track"><div class="faq-progress-fill" style="width:100%"></div></div>
+                <span class="faq-progress-label">4 / 4</span>
+              </div>
+              <div class="faq-nav">
+                <button class="faq-nav-btn" onclick="switchFaq(2)"><svg viewBox="0 0 24 24" width="16"><polyline points="15 18 9 12 15 6"/></svg></button>
+                <button class="faq-nav-btn" onclick="switchFaq(-1)" disabled><svg viewBox="0 0 24 24" width="16"><polyline points="9 18 15 12 9 6"/></svg></button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Wave divider -->
+<div class="ct-wave-wrap">
+  <svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <linearGradient id="ctWv" x1="0%" y1="100%" x2="100%" y2="0%">
+        <stop offset="0%" stop-color="#faf6f0"/>
+        <stop offset="50%" stop-color="#f0e8de"/>
+        <stop offset="100%" stop-color="#f5ede8"/>
+      </linearGradient>
+    </defs>
+
+    <path d="M0,0 L0,50 Q200,90 400,55 Q600,18 720,58 Q900,100 1080,50 Q1280,5 1440,50 L1440,0 Z" fill="url(#ctWv)"/>
+
+    <path d="M0,80 L0,50 Q200,90 400,55 Q600,18 720,58 Q900,100 1080,50 Q1280,5 1440,50 L1440,80 Z" fill="#5a1230"/>
+  </svg>
+</div>
+
+<section class="contact-section" id="contactSection">
+  <div class="ct-orb ct-orb-1"></div>
+  <div class="ct-orb ct-orb-2"></div>
+  <div class="ct-orb ct-orb-3"></div>
+  <div class="ct-ring ct-ring-1"></div>
+  <div class="ct-ring ct-ring-2"></div>
+  <div class="ct-dot ct-dot-1"></div>
+  <div class="ct-dot ct-dot-2"></div>
+  <div class="ct-dot ct-dot-3"></div>
+  <div class="ct-dot ct-dot-4"></div>
+  <div class="ct-dot ct-dot-5"></div>
+
+  <div class="ct-inner">
+    <div class="ct-header-row" id="ctHdr">
+      <div>
+        <div class="ct-eyebrow">
+          <div class="ct-eyebrow-bar"></div>
+          <span class="ct-eyebrow-txt">Contact Us</span>
+        </div>
+        <h2 class="ct-h2">Let's Build Your <em>Qatar</em><br>Business Together</h2>
+      </div>
+      <p class="ct-header-sub">Our Doha consultants are ready to guide you through every step of your GCC business journey.</p>
+    </div>
+
+    <div class="ct-grid">
+
+      <!-- COL 1: Info -->
+      <div class="ct-info-col" id="ctInfoCol">
+        <div class="ct-card">
+          <span class="ct-card-icon">📍</span>
+          <div class="ct-card-lbl">Head Office</div>
+          <div class="ct-card-val"><strong>Doha, Qatar</strong><br>West Bay Business District<br>PO Box 31455</div>
+        </div>
+        <div class="ct-card">
+          <span class="ct-card-icon">📞</span>
+          <div class="ct-card-lbl">Phone &amp; WhatsApp</div>
+          <div class="ct-card-val"><strong>+974 4447 7741</strong><br>Sun–Thu: 8am – 6pm</div>
+        </div>
+        <div class="ct-card">
+          <span class="ct-card-icon">✉️</span>
+          <div class="ct-card-lbl">Email</div>
+          <div class="ct-card-val"><strong>info@ventureplus.qa</strong><br>Reply within 24hrs</div>
+        </div>
+        <div class="ct-avail">
+          <div class="ct-avail-dot"></div>
+          <span class="ct-avail-txt">Available Now</span>
+        </div>
+        <div class="ct-socials">
+          <a href="#" class="ct-soc"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+          <a href="#" class="ct-soc"><i class="fab fa-linkedin-in"></i> LinkedIn</a>
+          <a href="#" class="ct-soc"><i class="fab fa-instagram"></i> Instagram</a>
+          <a href="#" class="ct-soc"><i class="fab fa-facebook-f"></i> Facebook</a>
+        </div>
+      </div>
+
+      <!-- COL 2: Map -->
+      <div class="ct-map-col" id="ctMapCol">
+        <div class="ct-map-box">
+          <div class="ct-map-bar">
+            <div class="ct-map-live">
+              <div class="ct-map-dot"></div>
+              <span class="ct-map-live-lbl">Live Location</span>
+            </div>
+            <span class="ct-map-city">📍 West Bay, Doha</span>
+          </div>
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d57902.73596870742!2d51.47213!3d25.2854!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e45c534ffdce87f%3A0x1cfa88cf812b4032!2sWest%20Bay%2C%20Doha%2C%20Qatar!5e0!3m2!1sen!2s!4v1700000000000!5m2!1sen!2s"
+            allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Venture+ Qatar Office">
+          </iframe>
+        </div>
+        <div class="ct-strip">
+          <div class="ct-strip-tile">
+            <div class="ct-strip-emoji">🇶🇦</div>
+            <div class="ct-strip-lbl">Country</div>
+            <div class="ct-strip-val">Qatar</div>
+          </div>
+          <div class="ct-strip-tile">
+            <div class="ct-strip-emoji">🏙️</div>
+            <div class="ct-strip-lbl">City</div>
+            <div class="ct-strip-val">Doha</div>
+          </div>
+          <div class="ct-strip-tile">
+            <div class="ct-strip-emoji">🕐</div>
+            <div class="ct-strip-lbl">Timezone</div>
+            <div class="ct-strip-val">AST +3</div>
+          </div>
+          <div class="ct-strip-tile">
+            <div class="ct-strip-emoji">💼</div>
+            <div class="ct-strip-lbl">Clients</div>
+            <div class="ct-strip-val">500+</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- COL 3: Form -->
+      <div class="ct-form-col" id="ctFormCol">
+        <div class="ct-form-box">
+          <div class="ct-form-ttl">Send a <span>Message</span></div>
+          <div class="ct-form-hint">We respond within 24 business hours.</div>
+          <div class="ct-f-row">
+            <div class="ct-f">
+              <label>First Name</label>
+              <input type="text" placeholder="Ahmad" id="ctName">
+            </div>
+            <div class="ct-f">
+              <label>Last Name</label>
+              <input type="text" placeholder="Al Rashid" id="ctLname">
+            </div>
+          </div>
+          <div class="ct-f">
+            <label>Email</label>
+            <input type="email" placeholder="you@company.com" id="ctEmail">
+          </div>
+          <div class="ct-f">
+            <label>Service</label>
+            <select id="ctService">
+              <option value="" disabled selected>Select a service...</option>
+              <option>Business Setup in Qatar</option>
+              <option>PRO Services</option>
+              <option>Visa Assistance</option>
+              <option>Commercial Licensing</option>
+              <option>ELDA – Legal Document Audit</option>
+              <option>Bookkeeping, Accounting &amp; VAT</option>
+              <option>Managed IT Services</option>
+              <option>Venture Connect</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="ct-f">
+            <label>Message</label>
+            <textarea placeholder="Tell us about your business needs…" id="ctMsg"></textarea>
+          </div>
+          <button class="ct-btn" id="ctBtn" onclick="handleCtSubmit()">
+            <div class="ct-btn-inner">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+              Send Message
+            </div>
+          </button>
+          <div class="ct-ok" id="ctOk">✅ Sent! Our Qatar team will respond within 24 hours.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ───────── FOOTER (HERO ANIMATED DESIGN - STABLE, NO GLOP) ───────── -->
+<footer class="footer-modern">
+  <canvas id="footer-bg-canvas"></canvas>
+  <div class="footer-container">
+    <div class="footer-about">
+     <div style="display:flex;align-items:center;gap:12px;margin-bottom:18px;">
+  <img src="Img/Screenshot_2026-03-24_101847-removebg-preview.png" alt="Venture+" style="width:48px;height:48px;object-fit:cover;background:#fff;border-radius:10px;">
+  <div style="display:flex;flex-direction:column;line-height:1;">
+    <span style="font-size:22px;font-weight:700;color:#ffffff;font-family:'Poppins',sans-serif;">Venture+</span>
+    <small style="font-size:12px;font-weight:500;color:#ff2e63;letter-spacing:2.5px;text-transform:uppercase;margin-top:3px;font-family:'Poppins',sans-serif;">Services</small>
+  </div>
+</div>
+
+      <p>Venture Plus Consultancy Services, was established with the principal objective of assisting crucial business procedures.</p>
+    </div>
+    <div class="footer-links">
+      <h3>Quick Link</h3>
+      <ul>
+        <li>About Venture</li>
+        <li>Our Services</li>
+        <li>Contact</li>
+        <li>FAQ</li>
+      </ul>
+    </div>
+    <div class="footer-contact">
+      <h3>Contact Us</h3>
+      <p>Mubarak Salem Owaida Jaber Al Khaile Building<br>PO Box 31455 Abu Dhabi | UAE</p>
+      <p><strong>Phone Call:</strong><br>971(0)24477741</p>
+      <div class="footer-social">
+        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© All Copyright 2025 by Venture UAE</p>
+    <div class="footer-policy">
+      <span>Terms & Condition</span>
+      <span>Privacy Policy</span>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+// existing three.js for hero (unchanged)
+const scene=new THREE.Scene();
+const camera=new THREE.PerspectiveCamera(75,window.innerWidth/window.innerHeight,0.1,1000);
+camera.position.z=4;
+const renderer=new THREE.WebGLRenderer({canvas:document.querySelector('#bg'),alpha:true});
+renderer.setSize(window.innerWidth,window.innerHeight);
+const geo=new THREE.SphereGeometry(1.5,64,64);
+const mat=new THREE.PointsMaterial({color:0xff2e63,size:0.02});
+const pts=new THREE.Points(geo,mat);
+scene.add(pts);
+const pGeo=new THREE.BufferGeometry();
+const count=1500;
+const pos=new Float32Array(count*3);
+for(let i=0;i<count;i++){pos[i*3]=(Math.random()-.5)*10;pos[i*3+1]=(Math.random()-.5)*10;pos[i*3+2]=(Math.random()-.5)*10;}
+pGeo.setAttribute('position',new THREE.BufferAttribute(pos,3));
+const pMat=new THREE.PointsMaterial({color:0xff6a88,size:0.01});
+const particles=new THREE.Points(pGeo,pMat);
+scene.add(particles);
+(function animate(){requestAnimationFrame(animate);pts.rotation.y+=.002;pts.rotation.x+=.001;particles.rotation.y+=.0005;renderer.render(scene,camera);})();
+window.addEventListener('resize',()=>{camera.aspect=window.innerWidth/window.innerHeight;camera.updateProjectionMatrix();renderer.setSize(window.innerWidth,window.innerHeight);});
+document.querySelector('.btn').addEventListener('click',()=>{window.scrollTo({top:window.innerHeight,behavior:'smooth'});});
+window.addEventListener('scroll',()=>{document.querySelector('.navbar').classList.toggle('scrolled',window.scrollY>50);});
+// news section scroll reveal + 3D tilt
+(function(){
+  const hdr = document.getElementById('nwsHeader');
+  const cards = document.querySelectorAll('.nws-card');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if(e.isIntersecting) { e.target.classList.add('nws-in'); e.target.classList.add('news-in'); }
+    });
+  }, { threshold: 0.12 });
+  if(hdr) io.observe(hdr);
+  cards.forEach(c => io.observe(c));
+  // header row observer
+  const hdrIO = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('nws-in'); });
+  },{threshold:0.15});
+  if(hdr) hdrIO.observe(hdr);
+  // 3D magnetic tilt on cards
+  cards.forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+      const r = card.getBoundingClientRect();
+      const dx = (e.clientX - r.left - r.width/2) / (r.width/2);
+      const dy = (e.clientY - r.top  - r.height/2) / (r.height/2);
+      card.style.transform = `translateY(-10px) rotateX(${-dy*5}deg) rotateY(${dx*5}deg) scale(1.02)`;
+      card.style.transition = 'box-shadow .15s, border-color .15s';
+    });
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = '';
+      card.style.transition = 'opacity 0.75s ease, transform 0.6s cubic-bezier(0.2,0.9,0.4,1), box-shadow 0.45s ease, border-color 0.4s ease';
+    });
+  });
+})();
+// hero cycling
+const servicesArr=[{big:"Business\nSetup",label:"Business Setup"},{big:"PRO\nServices",label:"PRO Services"},{big:"Visa\nAssistance",label:"Visa Assistance"},{big:"Operation\nSupport",label:"Operation Support"},{big:"Venture\nConnect",label:"Venture Connect"}];
+let cur=0;
+const bigWordEl=document.getElementById('bigWord');
+const svcItems=document.querySelectorAll('#serviceList .service-item');
+const ctrEl=document.getElementById('counter');
+function updateRight(i){bigWordEl.classList.add('fade-out');setTimeout(()=>{bigWordEl.innerHTML=servicesArr[i].big.replace('\n','<br>');bigWordEl.classList.remove('fade-out');svcItems.forEach((el,j)=>el.classList.toggle('active',j===i));ctrEl.innerHTML=`<span>${String(i+1).padStart(2,'0')}</span> / 05`;},400);}
+setInterval(()=>{cur=(cur+1)%servicesArr.length;updateRight(cur);},2800);
+// offering reveal
+const revealEls=[document.getElementById('ofLabel'),document.getElementById('ofHeading'),...document.querySelectorAll('.of-card')];
+function animateCount(el,target,duration=1800){const start=performance.now();const update=(now)=>{const p=Math.min((now-start)/duration,1);const eased=1-Math.pow(1-p,4);el.textContent=Math.round(eased*target);if(p<1)requestAnimationFrame(update);};requestAnimationFrame(update);}
+const countersStarted=new Set();
+const ioOffering=new IntersectionObserver((entries)=>{entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('in');if(entry.target.classList.contains('of-card')&&!countersStarted.has(entry.target)){countersStarted.add(entry.target);const countEl=entry.target.querySelector('.b-count, .b-sm-count');const target=parseInt(entry.target.dataset.target||'0');if(countEl)setTimeout(()=>animateCount(countEl,target,1800),420);}}})},{threshold:0.15});
+revealEls.forEach(el=>el&&ioOffering.observe(el));
+const ioHeader=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in');})},{threshold:0.2});
+const showcaseHdr=document.getElementById('showcaseHeader');const viewAllWrap=document.getElementById('viewAllWrap');
+if(showcaseHdr)ioHeader.observe(showcaseHdr);if(viewAllWrap)ioHeader.observe(viewAllWrap);
+// carousel logic (single instance only — duplicate removed to fix jump/reset glitch)
+(function(){const track=document.getElementById('carTrack');const dotsWrap=document.getElementById('carDots');const prevBtn=document.getElementById('carPrev');const nextBtn=document.getElementById('carNext');const pauseBtn=document.getElementById('carPause');const pauseIcon=document.getElementById('pauseIcon');const serviceFlow=track.closest('.service-flow');const origCards=Array.from(track.querySelectorAll('.service-unit'));const TOTAL=origCards.length;const GAP=24;const CARD_W=360;const clonesBefore=origCards.map(c=>{const cl=c.cloneNode(true);cl.setAttribute('aria-hidden','true');return cl;});const clonesAfter=origCards.map(c=>{const cl=c.cloneNode(true);cl.setAttribute('aria-hidden','true');return cl;});clonesBefore.forEach(c=>track.insertBefore(c,track.firstChild));clonesAfter.forEach(c=>track.appendChild(c));const allCards=Array.from(track.querySelectorAll('.service-unit'));let current=TOTAL;let playing=true;let timer=null;let isJumping=false;origCards.forEach((_,i)=>{const d=document.createElement('span');d.className='c-dot'+(i===0?' active':'');d.addEventListener('click',()=>jumpTo(i));dotsWrap.appendChild(d);});const dots=Array.from(dotsWrap.querySelectorAll('.c-dot'));function getOffset(idx){const wrapW=serviceFlow.offsetWidth;const cardStep=CARD_W+GAP;const center=wrapW/2-CARD_W/2;return idx*cardStep-center;}function applyClasses(){const realIdx=current-TOTAL;allCards.forEach((c,i)=>{c.classList.remove('active-card','side-card');const diff=i-current;if(diff===0)c.classList.add('active-card');else if(Math.abs(diff)===1)c.classList.add('side-card');});dots.forEach((d,i)=>d.classList.toggle('active',i===((realIdx%TOTAL+TOTAL)%TOTAL)));}function setPos(idx,animated){track.style.transition=animated?'transform 0.6s cubic-bezier(0.35,0.85,0.4,1)':'none';track.style.transform=`translateX(-${getOffset(idx)}px)`;}function updateCarousel(animated){applyClasses();setPos(current,animated);}track.addEventListener('transitionend',()=>{if(isJumping)return;if(current<TOTAL){isJumping=true;current+=TOTAL;setPos(current,false);requestAnimationFrame(()=>requestAnimationFrame(()=>{isJumping=false;}));}else if(current>=TOTAL*2){isJumping=true;current-=TOTAL;setPos(current,false);requestAnimationFrame(()=>requestAnimationFrame(()=>{isJumping=false;}));}applyClasses();});function goNext(){current++;updateCarousel(true);}function goPrev(){current--;updateCarousel(true);}function jumpTo(realIdx){current=TOTAL+realIdx;updateCarousel(true);}function startTimer(){clearInterval(timer);timer=setInterval(goNext,3200);}function stopTimer(){clearInterval(timer);}prevBtn.addEventListener('click',()=>{goPrev();if(playing)startTimer();});nextBtn.addEventListener('click',()=>{goNext();if(playing)startTimer();});allCards.forEach((c,i)=>{c.addEventListener('click',()=>{if(!c.classList.contains('active-card')){current=i;if(current<TOTAL)current+=TOTAL;if(current>=TOTAL*2)current-=TOTAL;updateCarousel(true);if(playing)startTimer();}});});pauseBtn.addEventListener('click',()=>{playing=!playing;if(playing){startTimer();pauseIcon.innerHTML='<rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/>';}else{stopTimer();pauseIcon.innerHTML='<polygon points="5 3 19 12 5 21 5 3"/>';}});function init(){updateCarousel(false);startTimer();}if(document.readyState==='complete')init();else window.addEventListener('load',init);window.addEventListener('resize',()=>setPos(current,false));})();
+// about counters
+(function(){const label=document.getElementById('aboutLabel');const imgPanel=document.getElementById('aboutImgPanel');const textPanel=document.getElementById('aboutTextPanel');let counted=false;function countUp(el,target,suffix,duration){const start=performance.now();const update=(now)=>{const p=Math.min((now-start)/duration,1);const eased=1-Math.pow(1-p,4);el.textContent=Math.round(eased*target)+suffix;if(p<1)requestAnimationFrame(update);};requestAnimationFrame(update);}const aboutIO=new IntersectionObserver((entries)=>{entries.forEach(entry=>{if(!entry.isIntersecting)return;entry.target.classList.add('in');if(entry.target===textPanel&&!counted){counted=true;setTimeout(()=>{document.querySelectorAll('.amstat-num[data-target], .afc-num[data-target]').forEach(el=>{const target=parseInt(el.dataset.target);const suffix=el.dataset.suffix||'';countUp(el,target,suffix,1800);});},600);}});},{threshold:0.2});[label,imgPanel,textPanel].forEach(el=>{if(el)aboutIO.observe(el);});})();
+// FAQ animation
+(function(){const heroLeft=document.getElementById('faqHeroLeft');const heroRight=document.getElementById('faqHeroRight');const tabs=document.getElementById('faqTabs');const panelWrap=document.getElementById('faqPanelWrap');const imgStack=document.getElementById('faqImgStack');const io=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in');});},{threshold:0.15});[heroLeft,heroRight,tabs,panelWrap,imgStack].forEach(el=>{if(el)io.observe(el);});})();
+
+// FAQ image switcher (synced with tabs)
+const faqImages=[
+  'Img/52ba833e15155b2fc920e0179be7c1f1.jpg',
+  'Img/640d32fde726e38dcc0bea0a74050e85.jpg',
+  'Img/332c11ef438172d04f7281adff8eed43.jpg',
+  'Img/d6680b6bd7072943f8c0bb9bf09d32ac.jpg'
+];
+function switchFaqImg(idx){const img=document.getElementById('faqMainImg');if(!img)return;img.style.transition='opacity 0.4s ease';img.style.opacity='0';setTimeout(()=>{img.src=faqImages[idx];img.style.opacity='1';},400);const dots=document.querySelectorAll('.faq-img-dot');dots.forEach((d,i)=>d.classList.toggle('active',i===idx));}
+
+let faqCurrent=0;function switchFaq(idx){if(idx<0||idx>3)return;for(let i=0;i<4;i++){document.getElementById('ftab'+i).classList.remove('active');document.getElementById('fpanel'+i).classList.remove('active');}document.getElementById('ftab'+idx).classList.add('active');document.getElementById('fpanel'+idx).classList.add('active');faqCurrent=idx;switchFaqImg(idx);}
+document.querySelectorAll('.of-card').forEach(card=>{card.addEventListener('mousemove',(e)=>{const r=card.getBoundingClientRect();const dx=(e.clientX-r.left-r.width/2)/(r.width/2);const dy=(e.clientY-r.top-r.height/2)/(r.height/2);card.style.transform=`translateY(-5px) scale(1.01) rotateX(${-dy*4}deg) rotateY(${dx*4}deg)`;card.style.transition='box-shadow .15s';});card.addEventListener('mouseleave',()=>{card.style.transform='';card.style.transition='opacity .65s ease,transform .5s ease,box-shadow .35s ease';});});
+// Footer animated particles (stable version, no layout shift)
+(function initFooterParticles() {
+  const canvas = document.getElementById('footer-bg-canvas');
+  if (!canvas) return;
+
+  function resizeCanvas() {
+    const rect = canvas.parentElement.getBoundingClientRect();
+    const width = rect.width;
+    const height = rect.height;
+    canvas.width = width;
+    canvas.height = height;
+    cameraF.aspect = width / height;
+    cameraF.updateProjectionMatrix();
+    rendererF.setSize(width, height);
+  }
+
+  const sceneF = new THREE.Scene();
+  const cameraF = new THREE.PerspectiveCamera(45, 1, 0.1, 1000);
+  cameraF.position.z = 5;
+  const rendererF = new THREE.WebGLRenderer({ canvas, alpha: true });
+  rendererF.setClearColor(0x000000, 0);
+
+  const starCount = 1800;
+  const starGeo = new THREE.BufferGeometry();
+  const starPos = new Float32Array(starCount * 3);
+  for (let i = 0; i < starCount; i++) {
+    starPos[i*3] = (Math.random() - 0.5) * 40;
+    starPos[i*3+1] = (Math.random() - 0.5) * 20;
+    starPos[i*3+2] = (Math.random() - 0.5) * 20 - 5;
+  }
+  starGeo.setAttribute('position', new THREE.BufferAttribute(starPos, 3));
+  const starMat = new THREE.PointsMaterial({ color: 0xff6a88, size: 0.04, transparent: true, opacity: 0.7 });
+  const stars = new THREE.Points(starGeo, starMat);
+  sceneF.add(stars);
+
+  const dustCount = 800;
+  const dustGeo = new THREE.BufferGeometry();
+  const dustPos = new Float32Array(dustCount * 3);
+  for (let i = 0; i < dustCount; i++) {
+    dustPos[i*3] = (Math.random() - 0.5) * 35;
+    dustPos[i*3+1] = (Math.random() - 0.5) * 18;
+    dustPos[i*3+2] = (Math.random() - 0.5) * 18;
+  }
+  dustGeo.setAttribute('position', new THREE.BufferAttribute(dustPos, 3));
+  const dustMat = new THREE.PointsMaterial({ color: 0xff2e63, size: 0.02, transparent: true, opacity: 0.5 });
+  const dust = new THREE.Points(dustGeo, dustMat);
+  sceneF.add(dust);
+
+  let time = 0;
+  function animateFooter() {
+    requestAnimationFrame(animateFooter);
+    time += 0.005;
+    stars.rotation.y = time * 0.1;
+    stars.rotation.x = Math.sin(time * 0.2) * 0.1;
+    dust.rotation.y = time * 0.08;
+    dust.rotation.x = time * 0.05;
+    rendererF.render(sceneF, cameraF);
+  }
+
+  resizeCanvas();
+  animateFooter();
+
+  let resizeTimeout;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimeout);
+    resizeTimeout = setTimeout(resizeCanvas, 100);
+  });
+})();
+
+(function(){
+  const els=[document.getElementById('ctHdr'),document.getElementById('ctInfoCol'),document.getElementById('ctMapCol'),document.getElementById('ctFormCol')];
+  const io=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('ct-in');});},{threshold:0.08});
+  els.forEach(el=>{if(el)io.observe(el);});
+})();
+function handleCtSubmit(){
+  const btn=document.getElementById('ctBtn');
+  const ok=document.getElementById('ctOk');
+  btn.querySelector('.ct-btn-inner').textContent='Sending…';
+  btn.style.opacity='0.7';
+  setTimeout(()=>{
+    btn.classList.add('ct-sent');
+    btn.querySelector('.ct-btn-inner').textContent='✓ Message Sent!';
+    ok.classList.add('show');
+    setTimeout(()=>{
+      btn.classList.remove('ct-sent'); btn.style.opacity='1';
+      btn.innerHTML='<div class="ct-btn-inner"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg> Send Message</div>';
+      ok.classList.remove('show');
+      ['ctName','ctLname','ctEmail','ctMsg'].forEach(id=>{const el=document.getElementById(id);if(el)el.value='';});
+    },4000);
+  },1600);
+}
+
+</script>
+</body>
+</html>
